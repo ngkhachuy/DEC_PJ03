@@ -1,0 +1,11 @@
+
+tiki.vn
+
+find root category
+
+for cat in root:
+
+    child = send cat url
+
+    while child is leaf
+        next child = send child url
