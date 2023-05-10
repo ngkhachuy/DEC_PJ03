@@ -1,7 +1,6 @@
 import datetime
 
 import urllib3
-import pandas as pd
 from bs4 import BeautifulSoup
 
 import COMMON
@@ -32,15 +31,6 @@ if __name__ == '__main__':
             category = CATEGORY(_id, 'NGON', 1, cat_url, None)
             categories.append(category)
             continue
-
-        # Send request to Root category
-        res = http.request('GET', cat_url)
-        cat_context = BeautifulSoup(res.data, 'html.parser')
-        child = cat_context.find_all('a', class_='item--category')[0]
-        child_categories = []
-
-        while True:
-            pass
 
         category = CATEGORY(_id, cat_name.strip(), 1, cat_url, None)
         categories.append(category)
