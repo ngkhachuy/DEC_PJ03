@@ -8,7 +8,6 @@ from MODELS.CATEGORY import Base
 def import_date(file):
 
     engine = db.create_engine('mysql+mysqlconnector://root:123456@localhost:3306/TIKI')
-
     session = sessionmaker()
     session.configure(bind=engine)
     my_session = session()
@@ -17,7 +16,6 @@ def import_date(file):
     Base.metadata.create_all(engine)
 
     data = pd.read_csv(file)
-
     data.to_sql('category', engine, if_exists='append', index=False)
 
     my_session.commit()
