@@ -7,10 +7,14 @@
     <list default="true" id="71e9eea6-d4a3-4c8b-94c1-7ebacd8bfea5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COMMON.py" beforeDir="false" afterPath="$PROJECT_DIR$/COMMON.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MODELS/PRODUCT.py" beforeDir="false" afterPath="$PROJECT_DIR$/MODELS/PRODUCT.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/DONE_CATEGORIES" beforeDir="false" afterPath="$PROJECT_DIR$/data/DONE_CATEGORIES" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/download_images.py" beforeDir="false" afterPath="$PROJECT_DIR$/download_images.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/get_product_API.py" beforeDir="false" afterPath="$PROJECT_DIR$/get_product_API.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modeling_categories.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logging.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/logging.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logging_download_images.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/logging_download_images.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transfer_products.py" beforeDir="false" afterPath="$PROJECT_DIR$/transfer_products.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +48,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/log" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

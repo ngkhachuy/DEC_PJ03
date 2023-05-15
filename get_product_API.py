@@ -1,8 +1,11 @@
+import os
+import sys
 import datetime
 import traceback
 
 import pymongo
 import pandas as pd
+import requests
 from bs4 import BeautifulSoup
 
 import COMMON
@@ -10,7 +13,7 @@ from MODELS.PRODUCT import PRODUCT
 
 if __name__ == '__main__':
 
-    LOGGER = COMMON.get_log('logging.log')
+    LOGGER = COMMON.get_log('log/logging.log')
 
     START_TIME = datetime.datetime.now()
     msg = 'STARTED TIME: ' + START_TIME.strftime("%H:%M:%S %d/%m/%Y")
@@ -69,6 +72,7 @@ if __name__ == '__main__':
                 prod_list = COMMON.send_get_request(LIST_PRODUCT_API % (cat_id, page))
                 COUNT_OF_REQUEST += 1
                 if page == 1:
+                    print("\n")
                     print('<----- Crawling Category ID %s, with %i products ----->' % (cat_id,
                                                                                        prod_list['paging']['total']))
 
@@ -150,14 +154,19 @@ if __name__ == '__main__':
             msg = "[INSERTED] Inserted %s Products to Category ID %s" % (str(len(LIST_PRODUCT)).zfill(4), cat_id)
             print(msg)
             LOGGER.info(msg)
-            print("\t[PROCESS] %s/%s CATEGORIES with %i PRODUCTS" % (str(COUNT_OF_CURRENT_CATEGORIES),
-                                                                     str(COUNT_OF_CATEGORIES_WILL_BE_PROCESSED),
-                                                                     COUNT_OF_PRODUCT))
+            print("\t[PROCESSED] %s/%s CATEGORIES with %i PRODUCTS" % (str(COUNT_OF_CURRENT_CATEGORIES),
+                                                                       str(COUNT_OF_CATEGORIES_WILL_BE_PROCESSED),
+                                                                       COUNT_OF_PRODUCT))
 
             # ------------------------------ Write Category ID to file
             with open('data/DONE_CATEGORIES', 'a') as file:
                 file.write(cat_id)
                 file.write("\n")
+
+    except requests.exceptions.Timeout:
+        print("[TIMEOUT] Restart script!")
+        LOGGER.error("[TIMEOUT] Restart script!")
+        os.execv(sys.executable, ['python'] + sys.argv)
 
     except Exception as e:
         print('<-------------------- [ERROR MESSAGE] -------------------->\n')
@@ -171,6 +180,10 @@ if __name__ == '__main__':
         LOGGER.error('ERROR AT CATEGORY: %s' % str(cat_id))
         LOGGER.error('ERROR AT PRODUCT: %s' % str(p_id))
 
+        print("[ERROR] Restart script!")
+        LOGGER.error("[ERROR] Restart script!")
+        os.execv(sys.executable, ['python'] + sys.argv)
+
     finally:
-        COMMON.print_execution_time(START_TIME, 'logging.log')
+        COMMON.print_execution_time(START_TIME, 'log/logging.log')
         LOGGER.info('NUMBER OF REQUEST HAD BEEN SENT: %s' % str(COUNT_OF_REQUEST))

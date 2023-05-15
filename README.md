@@ -31,8 +31,8 @@ Lưu ý, chỉ trích chọn ra thông tin miêu tả “Thành phần” trong 
 5. `transfer_products.py` : Transfer products's data from MongoDB to MySQL
 6. `download_images.py` : Download images of product
 7. `COMMON.py` : Common function
-8. `logging.log` : Log file of getting products
-9. `logging_download_images.log` : log file of downloading images
+8. `/log/logging.log` : Log file of getting products
+9. `/log/logging_download_images.log` : log file of downloading images
 
 10. `/data/DONE_CATEGORIES`
 11. `/data/DONE_PRODUCT`

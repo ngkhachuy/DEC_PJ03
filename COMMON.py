@@ -24,8 +24,8 @@ def send_get_request(url):
         res_tmp = requests.get(url, headers={"user-agent":
                                              "Mozilla/5.0 (X11; Linux x86_64) "
                                              "AppleWebKit/537.36 (KHTML, like Gecko) "
-                                             "Chrome/112.0.0.0 Safari/537.36"}
-                               ).content
+                                             "Chrome/112.0.0.0 Safari/537.36"},
+                               timeout=5).content
 
         if b'Checking your browser' in res_tmp:
             sleep(10 + count)
