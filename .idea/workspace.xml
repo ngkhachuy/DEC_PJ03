@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71e9eea6-d4a3-4c8b-94c1-7ebacd8bfea5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/COMMON.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MODELS/CATEGORY.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MODELS/PRODUCT.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_2.0.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DEC_PJ4_TIKI.VN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DEC_PJ4_TIKI.VN.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Description.md" beforeDir="false" afterPath="$PROJECT_DIR$/Description.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMMON.py" beforeDir="false" afterPath="$PROJECT_DIR$/COMMON.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/get_product_API.py" beforeDir="false" afterPath="$PROJECT_DIR$/get_product_API.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modeling_categories.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +56,17 @@
       <updated>1683335066979</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
