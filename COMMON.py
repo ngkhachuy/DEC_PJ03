@@ -5,6 +5,13 @@ import logging
 import requests
 from time import sleep
 
+# ------------------------------API URL
+LIST_PRODUCT_API = 'https://tiki.vn/api/v2/products?' \
+                   'limit=100&include=advertisement&aggregations=1&' \
+                   'category=%s&' \
+                   'page=%i'
+PRODUCT_DETAIL_API = 'https://tiki.vn/api/v2/products/%s'
+
 
 def print_execution_time(stared, file_log):
 
@@ -25,14 +32,19 @@ def send_get_request(url):
                                              "Mozilla/5.0 (X11; Linux x86_64) "
                                              "AppleWebKit/537.36 (KHTML, like Gecko) "
                                              "Chrome/112.0.0.0 Safari/537.36"},
-                               timeout=5).content
+                               timeout=30).content
 
+        # If IP have been blocked, sleep 10s
+        # After that, try to send request again
+        # If still blocked, sleep time increase 1 second
+        # Repeat until success
         if b'Checking your browser' in res_tmp:
-            sleep(10 + count)
             if count > 0:
                 print("-- Sleep %is (Repeat) --" % (10 + count))
             else:
-                print('-- Sleep 10s --')
+                print('-- Sleep 10s -----------')
+
+            sleep(10 + count)
             count += 1
         else:
             return json.loads(res_tmp.decode('utf-8'))

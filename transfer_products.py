@@ -1,15 +1,11 @@
-import os
-import sys
 import datetime
-import traceback
 
 import pymongo
 import pandas as pd
 import sqlalchemy as db
 from sqlalchemy.orm import sessionmaker
 
-import COMMON
-from MODELS.PRODUCT import Base, PRODUCT
+from MODELS.PRODUCT import Base
 
 
 if __name__ == '__main__':
@@ -24,6 +20,7 @@ if __name__ == '__main__':
 
     # ------------------------------ Connect to MySQL
     engine = db.create_engine('mysql+mysqlconnector://root:123456@localhost:3306/TIKI')
+    my_conn = engine.connect()
     session = sessionmaker()
     session.configure(bind=engine)
     my_session = session()
@@ -32,8 +29,20 @@ if __name__ == '__main__':
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
 
+    # ------------------------------ Config for bulk insert
+    my_conn.execute(db.sql.text('set global max_allowed_packet=9999999999999999999;'))
+    my_conn.commit()
+    my_conn.close()
+    my_session.close()
+
+    # ------------------------------ Re-connect to MySQL
+    engine = db.create_engine('mysql+mysqlconnector://root:123456@localhost:3306/TIKI')
+    my_conn = engine.connect()
+    session = sessionmaker()
+    session.configure(bind=engine)
+    my_session = session()
+
     # ------------------------------ Load Data to DataFrame
-    # set global max_allowed_packet=10000000000;
     data = pd.DataFrame(list(mycol.find({}, {'_id': 0, 'prod_id': 1, 'name': 1,
                                              'short_description': 1, 'description': 1, 'url': 1,
                                              'rating': 1, 'sold_count': 1, 'currrent_price': 1,
@@ -52,4 +61,3 @@ if __name__ == '__main__':
     print('FINISHED TIME : ' + FINISHED.strftime("%H:%M:%S %d/%m/%Y"))
     print('EXECUTION TINE: ' + str(FINISHED - START_TIME))
     print('INSERTED RECORDS: ' + str(len(data.index)))
-

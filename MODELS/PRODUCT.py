@@ -1,10 +1,6 @@
-import json
-
-from sqlalchemy import Column, String, Text, BIGINT, Integer, Float, DOUBLE, DATETIME
+from sqlalchemy import Column, String, Text, Integer, Float, DATETIME
 from sqlalchemy.dialects.mysql import LONGTEXT
 from sqlalchemy.orm import declarative_base
-
-import pandas as pd
 
 Base = declarative_base()
 
@@ -28,9 +24,6 @@ class PRODUCT:
         self.category = category
         self.created_time = created_time
 
-    def to_json(self):
-        return json.dumps(self, default=lambda o: o.__dict__)
-
 
 class PRODUCT_SQL(Base):
     __tablename__ = 'product'
@@ -46,4 +39,3 @@ class PRODUCT_SQL(Base):
     category = Column(String(10))
     origin = Column(String(255))
     created_time = Column(DATETIME)
-

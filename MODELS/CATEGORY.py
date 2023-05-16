@@ -1,9 +1,5 @@
-import json
-
-from sqlalchemy import Column, String, Text, BIGINT, Integer, Float, DOUBLE, DATETIME
+from sqlalchemy import Column, String, Integer
 from sqlalchemy.orm import declarative_base
-
-import pandas as pd
 
 Base = declarative_base()
 
@@ -16,12 +12,6 @@ class CATEGORY:
         self.CAT_NAME = CAT_NAME
         self.LVL = LVL
         self.URL = URL
-
-    # def to_json(self):
-    #     return json.dumps(self.__dict__, ensure_ascii=False).encode('utf8').decode()
-    #
-    # def __repr__(self):
-    #     return "<NAME: {0} - url: {1}>".format(self.cat_name, self.url)
 
 
 class CATEGORY_SQL(Base):

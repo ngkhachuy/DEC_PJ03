@@ -13,19 +13,13 @@ from MODELS.PRODUCT import PRODUCT
 
 if __name__ == '__main__':
 
-    LOGGER = COMMON.get_log('log/logging.log')
+    LOGGER = COMMON.get_log('log/crawling.log')
+    LOGGER_ERROR = COMMON.get_log('log/crawling_error.log')
 
     START_TIME = datetime.datetime.now()
     msg = 'STARTED TIME: ' + START_TIME.strftime("%H:%M:%S %d/%m/%Y")
     print(msg)
     LOGGER.info(msg)
-
-    # ------------------------------API URL
-    LIST_PRODUCT_API = 'https://tiki.vn/api/v2/products?' \
-                       'limit=100&include=advertisement&aggregations=1&' \
-                       'category=%s&' \
-                       'page=%i'
-    PRODUCT_DETAIL_API = 'https://tiki.vn/api/v2/products/%s'
 
     # ------------------------------ Note for tracking
     COUNT_OF_REQUEST = 0
@@ -64,26 +58,18 @@ if __name__ == '__main__':
                 continue
 
             page = 1
-            continue_flg = True
+            max_page = 1
             # ------------------------------ Iteration in page numbers
-            while continue_flg:
+            while page <= max_page:
 
                 # ------------------------------ Send API request, get product list in category
-                prod_list = COMMON.send_get_request(LIST_PRODUCT_API % (cat_id, page))
+                prod_list = COMMON.send_get_request(COMMON.LIST_PRODUCT_API % (cat_id, page))
                 COUNT_OF_REQUEST += 1
                 if page == 1:
                     print("\n")
                     print('<----- Crawling Category ID %s, with %i products ----->' % (cat_id,
                                                                                        prod_list['paging']['total']))
-
-                max_page = prod_list['paging']['last_page']
-                print('<---------- PAGE %s/%s ---------->' % (str(page).zfill(2), str(max_page).zfill(2)))
-
-                # ------------------------------ Check with max page. Stop when reach max page.
-                if page < max_page:
-                    page += 1
-                else:
-                    continue_flg = False
+                    max_page = prod_list['paging']['last_page']
 
                 # ------------------------------ Loop for product in list to get details
                 for p in prod_list['data']:
@@ -92,8 +78,9 @@ if __name__ == '__main__':
                     p_id = p['id']
 
                     # ------------------------------ Send API request, get product's details
-                    prod_detail = COMMON.send_get_request(PRODUCT_DETAIL_API % p_id)
+                    prod_detail = COMMON.send_get_request(COMMON.PRODUCT_DETAIL_API % p_id)
                     COUNT_OF_REQUEST += 1
+                    print('REQUEST SENT: %i' % COUNT_OF_REQUEST, end='\r')
 
                     # ------------------------------ PRODUCT's NAME
                     p_name = prod_detail['name']
@@ -146,6 +133,8 @@ if __name__ == '__main__':
                                                 p_sold_count, p_current_price, p_images_url, p_origin,
                                                 cat_id, datetime.datetime.now()).__dict__)
 
+                page += 1
+
             # ------------------------------ INSERT TO DATABASE
             if len(LIST_PRODUCT) > 0:
                 mycol.insert_many(LIST_PRODUCT)
@@ -170,20 +159,21 @@ if __name__ == '__main__':
 
     except Exception as e:
         print('<-------------------- [ERROR MESSAGE] -------------------->\n')
-        print(traceback.format_exc())
+        print(e)
         print('<--------------------------------------------------------->')
         print('ERROR AT CATEGORY: %s' % str(cat_id))
         print('ERROR AT PRODUCT: %s' % str(p_id))
         print('<--------------------------------------------------------->')
 
-        LOGGER.error(traceback.format_exc())
-        LOGGER.error('ERROR AT CATEGORY: %s' % str(cat_id))
-        LOGGER.error('ERROR AT PRODUCT: %s' % str(p_id))
+        LOGGER.error(e)
+        LOGGER_ERROR.error(traceback.format_exc())
+        LOGGER_ERROR.error('ERROR AT CATEGORY: %s' % str(cat_id))
+        LOGGER_ERROR.error('ERROR AT PRODUCT: %s' % str(p_id))
 
-        print("[ERROR] Restart script!")
-        LOGGER.error("[ERROR] Restart script!")
+        print("-- RESTART SCRIPT! ------")
+        LOGGER.error("RESTART SCRIPT!")
         os.execv(sys.executable, ['python'] + sys.argv)
 
     finally:
-        COMMON.print_execution_time(START_TIME, 'log/logging.log')
+        COMMON.print_execution_time(START_TIME, 'log/crawling.log')
         LOGGER.info('NUMBER OF REQUEST HAD BEEN SENT: %s' % str(COUNT_OF_REQUEST))

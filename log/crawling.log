@@ -884,3 +884,774 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='tiki.vn', port=44
 15-05-2023 16:39:08 INFO FINISHED TIME : 16:39:08 15/05/2023
 15-05-2023 16:39:08 INFO EXECUTION TINE: 1:29:58.582506
 15-05-2023 16:39:08 INFO NUMBER OF REQUEST HAD BEEN SENT: 10840
+15-05-2023 17:02:21 INFO STARTED TIME: 17:02:21 15/05/2023
+15-05-2023 17:10:30 INFO [INSERTED] Inserted 0967 Products to Category ID 20832
+15-05-2023 17:27:27 INFO [INSERTED] Inserted 2000 Products to Category ID 20836
+15-05-2023 17:35:31 INFO [INSERTED] Inserted 0962 Products to Category ID 20838
+15-05-2023 17:52:20 INFO [INSERTED] Inserted 2000 Products to Category ID 20854
+15-05-2023 17:58:14 ERROR [TIMEOUT] Restart script!
+15-05-2023 17:58:14 INFO STARTED TIME: 17:58:14 15/05/2023
+15-05-2023 17:58:14 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f3b12c91850>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products?limit=100&include=advertisement&aggregations=1&category=20856&page=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f3b12c91850>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 72, in <module>
+    prod_list = COMMON.send_get_request(LIST_PRODUCT_API % (cat_id, page))
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 24, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products?limit=100&include=advertisement&aggregations=1&category=20856&page=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f3b12c91850>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+15-05-2023 17:58:14 ERROR ERROR AT CATEGORY: 20856
+15-05-2023 17:58:14 ERROR ERROR AT PRODUCT: 
+15-05-2023 17:58:14 ERROR [ERROR] Restart script!
+15-05-2023 17:58:14 INFO STARTED TIME: 17:58:14 15/05/2023
+15-05-2023 18:06:34 INFO [INSERTED] Inserted 0991 Products to Category ID 20856
+15-05-2023 18:06:50 INFO [INSERTED] Inserted 0043 Products to Category ID 20858
+15-05-2023 18:07:58 INFO [INSERTED] Inserted 0114 Products to Category ID 20866
+15-05-2023 18:12:44 INFO [INSERTED] Inserted 0563 Products to Category ID 20872
+15-05-2023 18:22:31 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 761, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 444, in _error_catcher
+    yield
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 828, in read_chunked
+    self._update_chunk_length()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 765, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 816, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 624, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 857, in read_chunked
+    self._original_response.close()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/contextlib.py", line 137, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 461, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 95, in <module>
+    prod_detail = COMMON.send_get_request(PRODUCT_DETAIL_API % p_id)
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 24, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 745, in send
+    r.content
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 899, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 818, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+15-05-2023 18:22:31 ERROR ERROR AT CATEGORY: 20874
+15-05-2023 18:22:31 ERROR ERROR AT PRODUCT: 138044904
+15-05-2023 18:22:31 ERROR [ERROR] Restart script!
+15-05-2023 18:22:32 INFO STARTED TIME: 18:22:32 15/05/2023
+15-05-2023 18:39:08 INFO [INSERTED] Inserted 2000 Products to Category ID 20874
+15-05-2023 18:45:43 INFO [INSERTED] Inserted 0782 Products to Category ID 20886
+15-05-2023 19:02:35 INFO [INSERTED] Inserted 2000 Products to Category ID 20890
+15-05-2023 19:16:30 INFO [INSERTED] Inserted 1643 Products to Category ID 24986
+15-05-2023 19:16:31 INFO [INSERTED] Inserted 0001 Products to Category ID 20912
+15-05-2023 19:16:47 INFO [INSERTED] Inserted 0044 Products to Category ID 20914
+15-05-2023 19:17:35 INFO [INSERTED] Inserted 0070 Products to Category ID 20924
+15-05-2023 19:17:37 INFO [INSERTED] Inserted 0005 Products to Category ID 20918
+15-05-2023 19:19:05 INFO [INSERTED] Inserted 0209 Products to Category ID 20920
+15-05-2023 19:20:55 INFO [INSERTED] Inserted 0204 Products to Category ID 20922
+15-05-2023 19:21:34 INFO [INSERTED] Inserted 0047 Products to Category ID 20932
+15-05-2023 19:21:34 INFO [INSERTED] Inserted 0001 Products to Category ID 20936
+15-05-2023 19:21:42 INFO [INSERTED] Inserted 0022 Products to Category ID 20938
+15-05-2023 19:22:03 INFO [INSERTED] Inserted 0053 Products to Category ID 20940
+15-05-2023 19:22:30 INFO [INSERTED] Inserted 0041 Products to Category ID 20948
+15-05-2023 19:22:55 INFO [INSERTED] Inserted 0066 Products to Category ID 20950
+15-05-2023 19:23:08 INFO [INSERTED] Inserted 0029 Products to Category ID 20952
+15-05-2023 19:23:28 INFO [INSERTED] Inserted 0028 Products to Category ID 20964
+15-05-2023 19:23:58 INFO [INSERTED] Inserted 0080 Products to Category ID 20966
+15-05-2023 19:25:01 INFO [INSERTED] Inserted 0111 Products to Category ID 20968
+15-05-2023 19:25:05 INFO [INSERTED] Inserted 0010 Products to Category ID 20970
+15-05-2023 19:25:11 INFO [INSERTED] Inserted 0017 Products to Category ID 20972
+15-05-2023 19:25:27 INFO [INSERTED] Inserted 0014 Products to Category ID 20974
+15-05-2023 19:25:30 INFO [INSERTED] Inserted 0007 Products to Category ID 20976
+15-05-2023 19:25:33 INFO [INSERTED] Inserted 0009 Products to Category ID 20978
+15-05-2023 19:27:03 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 761, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 444, in _error_catcher
+    yield
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 828, in read_chunked
+    self._update_chunk_length()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 765, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 816, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 624, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 857, in read_chunked
+    self._original_response.close()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/contextlib.py", line 137, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 461, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 95, in <module>
+    prod_detail = COMMON.send_get_request(PRODUCT_DETAIL_API % p_id)
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 24, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 745, in send
+    r.content
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 899, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 818, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+15-05-2023 19:27:03 ERROR ERROR AT CATEGORY: 24988
+15-05-2023 19:27:03 ERROR ERROR AT PRODUCT: 247311763
+15-05-2023 19:27:03 ERROR [ERROR] Restart script!
+15-05-2023 19:27:03 INFO STARTED TIME: 19:27:03 15/05/2023
+15-05-2023 19:28:55 INFO [INSERTED] Inserted 0222 Products to Category ID 24988
+15-05-2023 19:29:34 INFO [INSERTED] Inserted 0076 Products to Category ID 20982
+15-05-2023 19:29:46 INFO [INSERTED] Inserted 0032 Products to Category ID 20984
+15-05-2023 19:30:05 INFO [INSERTED] Inserted 0046 Products to Category ID 20986
+15-05-2023 19:30:33 INFO [INSERTED] Inserted 0045 Products to Category ID 24992
+15-05-2023 19:30:39 INFO [INSERTED] Inserted 0013 Products to Category ID 24994
+15-05-2023 19:32:01 INFO [INSERTED] Inserted 0167 Products to Category ID 20992
+15-05-2023 19:35:10 INFO [INSERTED] Inserted 0359 Products to Category ID 21002
+15-05-2023 19:42:30 INFO [INSERTED] Inserted 0870 Products to Category ID 21004
+15-05-2023 19:48:47 INFO [INSERTED] Inserted 0743 Products to Category ID 21006
+15-05-2023 19:52:48 INFO [INSERTED] Inserted 0479 Products to Category ID 21008
+15-05-2023 20:09:57 INFO [INSERTED] Inserted 2000 Products to Category ID 21012
+15-05-2023 20:23:31 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/ssl.py", line 501, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/ssl.py", line 1041, in _create
+    self.do_handshake()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/ssl.py", line 1310, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:1129)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products/94361517 (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 95, in <module>
+    prod_detail = COMMON.send_get_request(PRODUCT_DETAIL_API % p_id)
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 24, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products/94361517 (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+15-05-2023 20:23:31 ERROR ERROR AT CATEGORY: 21016
+15-05-2023 20:23:31 ERROR ERROR AT PRODUCT: 94361517
+15-05-2023 20:23:31 ERROR [ERROR] Restart script!
+15-05-2023 20:23:33 INFO STARTED TIME: 20:23:33 15/05/2023
+15-05-2023 20:40:14 INFO [INSERTED] Inserted 2000 Products to Category ID 21016
+15-05-2023 20:43:48 INFO [INSERTED] Inserted 0420 Products to Category ID 21018
+15-05-2023 20:56:27 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 444, in _error_catcher
+    yield
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 828, in read_chunked
+    self._update_chunk_length()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 758, in _update_chunk_length
+    line = self._fp.fp.readline()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/ssl.py", line 1242, in recv_into
+    return self.read(nbytes, buffer)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/ssl.py", line 1100, in read
+    return self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 816, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 624, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 857, in read_chunked
+    self._original_response.close()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/contextlib.py", line 137, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 449, in _error_catcher
+    raise ReadTimeoutError(self._pool, None, "Read timed out.")
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='tiki.vn', port=443): Read timed out.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 95, in <module>
+    prod_detail = COMMON.send_get_request(PRODUCT_DETAIL_API % p_id)
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 24, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 745, in send
+    r.content
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 899, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 822, in generate
+    raise ConnectionError(e)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='tiki.vn', port=443): Read timed out.
+
+15-05-2023 20:56:27 ERROR ERROR AT CATEGORY: 21020
+15-05-2023 20:56:27 ERROR ERROR AT PRODUCT: 207879162
+15-05-2023 20:56:27 ERROR [ERROR] Restart script!
+15-05-2023 20:56:28 INFO STARTED TIME: 20:56:28 15/05/2023
+15-05-2023 21:12:46 INFO [INSERTED] Inserted 1894 Products to Category ID 21020
+15-05-2023 21:12:51 INFO [INSERTED] Inserted 0011 Products to Category ID 21024
+15-05-2023 21:13:10 INFO [INSERTED] Inserted 0031 Products to Category ID 21026
+15-05-2023 21:18:56 INFO [INSERTED] Inserted 0660 Products to Category ID 21028
+15-05-2023 21:18:59 INFO [INSERTED] Inserted 0007 Products to Category ID 21030
+15-05-2023 21:19:42 INFO [INSERTED] Inserted 0054 Products to Category ID 21034
+15-05-2023 21:27:58 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 761, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 444, in _error_catcher
+    yield
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 828, in read_chunked
+    self._update_chunk_length()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 765, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 816, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 624, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 857, in read_chunked
+    self._original_response.close()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/contextlib.py", line 137, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 461, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 95, in <module>
+    prod_detail = COMMON.send_get_request(PRODUCT_DETAIL_API % p_id)
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 24, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 745, in send
+    r.content
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 899, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 818, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+15-05-2023 21:27:58 ERROR ERROR AT CATEGORY: 21036
+15-05-2023 21:27:58 ERROR ERROR AT PRODUCT: 208594203
+15-05-2023 21:27:58 ERROR [ERROR] Restart script!
+15-05-2023 21:27:59 INFO STARTED TIME: 21:27:59 15/05/2023
+15-05-2023 21:44:50 INFO [INSERTED] Inserted 2000 Products to Category ID 21036
+15-05-2023 21:44:58 INFO [INSERTED] Inserted 0016 Products to Category ID 21038
+15-05-2023 21:45:36 INFO [INSERTED] Inserted 0066 Products to Category ID 21040
+15-05-2023 21:45:57 INFO [INSERTED] Inserted 0048 Products to Category ID 21042
+15-05-2023 21:46:10 INFO [INSERTED] Inserted 0034 Products to Category ID 21044
+15-05-2023 21:46:34 INFO [INSERTED] Inserted 0004 Products to Category ID 21056
+15-05-2023 21:46:40 INFO [INSERTED] Inserted 0015 Products to Category ID 21058
+15-05-2023 21:52:47 INFO [INSERTED] Inserted 0739 Products to Category ID 21060
+15-05-2023 21:53:03 INFO [INSERTED] Inserted 0020 Products to Category ID 21076
+15-05-2023 22:09:53 INFO [INSERTED] Inserted 2000 Products to Category ID 21084
+15-05-2023 22:10:31 INFO [INSERTED] Inserted 0044 Products to Category ID 21086
+15-05-2023 22:17:58 INFO [INSERTED] Inserted 0897 Products to Category ID 21088
+15-05-2023 22:17:59 INFO [INSERTED] Inserted 0004 Products to Category ID 21092
+15-05-2023 22:34:47 INFO [INSERTED] Inserted 2000 Products to Category ID 21094
+15-05-2023 22:51:40 INFO [INSERTED] Inserted 2000 Products to Category ID 21106
+15-05-2023 22:57:28 INFO [INSERTED] Inserted 0677 Products to Category ID 21114
+15-05-2023 23:02:06 INFO [INSERTED] Inserted 0567 Products to Category ID 21120
+15-05-2023 23:07:07 INFO [INSERTED] Inserted 0608 Products to Category ID 21132
+15-05-2023 23:07:32 INFO [INSERTED] Inserted 0008 Products to Category ID 21170
+15-05-2023 23:07:42 INFO [INSERTED] Inserted 0029 Products to Category ID 21172
+15-05-2023 23:07:43 INFO [INSERTED] Inserted 0002 Products to Category ID 21174
+15-05-2023 23:14:11 ERROR [TIMEOUT] Restart script!
+15-05-2023 23:14:11 INFO STARTED TIME: 23:14:11 15/05/2023
+15-05-2023 23:21:33 INFO [INSERTED] Inserted 0857 Products to Category ID 21176
+15-05-2023 23:21:36 INFO [INSERTED] Inserted 0007 Products to Category ID 21234
+15-05-2023 23:32:33 INFO [INSERTED] Inserted 1307 Products to Category ID 21236
+15-05-2023 23:49:35 INFO [INSERTED] Inserted 2000 Products to Category ID 21238
+16-05-2023 00:06:32 INFO [INSERTED] Inserted 2000 Products to Category ID 21242
+16-05-2023 00:09:44 INFO [INSERTED] Inserted 0393 Products to Category ID 21244
+16-05-2023 00:10:50 INFO [INSERTED] Inserted 0105 Products to Category ID 24984
+16-05-2023 00:15:56 INFO [INSERTED] Inserted 0621 Products to Category ID 21246
+16-05-2023 00:15:58 INFO [INSERTED] Inserted 0003 Products to Category ID 21248
+16-05-2023 00:32:57 INFO [INSERTED] Inserted 2000 Products to Category ID 21252
+16-05-2023 00:33:30 INFO [INSERTED] Inserted 0060 Products to Category ID 21254
+16-05-2023 00:33:54 ERROR [TIMEOUT] Restart script!
+16-05-2023 00:33:54 INFO STARTED TIME: 00:33:54 16/05/2023
+16-05-2023 00:51:48 INFO [INSERTED] Inserted 2000 Products to Category ID 21260
+16-05-2023 01:07:47 ERROR [TIMEOUT] Restart script!
+16-05-2023 01:07:47 INFO STARTED TIME: 01:07:47 16/05/2023
+16-05-2023 01:24:38 INFO [INSERTED] Inserted 2000 Products to Category ID 21270
+16-05-2023 01:41:33 INFO [INSERTED] Inserted 2000 Products to Category ID 21272
+16-05-2023 01:58:38 INFO [INSERTED] Inserted 2000 Products to Category ID 21274
+16-05-2023 02:15:39 INFO [INSERTED] Inserted 2000 Products to Category ID 21276
+16-05-2023 02:32:29 INFO [INSERTED] Inserted 2000 Products to Category ID 21280
+16-05-2023 02:36:05 ERROR [TIMEOUT] Restart script!
+16-05-2023 02:36:06 INFO STARTED TIME: 02:36:06 16/05/2023
+16-05-2023 02:53:12 INFO [INSERTED] Inserted 2000 Products to Category ID 21282
+16-05-2023 03:10:07 INFO [INSERTED] Inserted 2000 Products to Category ID 21284
+16-05-2023 03:26:54 ERROR [TIMEOUT] Restart script!
+16-05-2023 03:26:54 INFO STARTED TIME: 03:26:54 16/05/2023
+16-05-2023 03:27:01 ERROR [TIMEOUT] Restart script!
+16-05-2023 03:27:01 INFO STARTED TIME: 03:27:01 16/05/2023
+16-05-2023 03:27:08 ERROR [TIMEOUT] Restart script!
+16-05-2023 03:27:08 INFO STARTED TIME: 03:27:08 16/05/2023
+16-05-2023 03:27:18 ERROR [TIMEOUT] Restart script!
+16-05-2023 03:27:18 INFO STARTED TIME: 03:27:18 16/05/2023
+16-05-2023 03:32:46 ERROR [TIMEOUT] Restart script!
+16-05-2023 03:32:47 INFO STARTED TIME: 03:32:47 16/05/2023
+16-05-2023 03:33:06 ERROR [TIMEOUT] Restart script!
+16-05-2023 03:33:06 INFO STARTED TIME: 03:33:06 16/05/2023
+16-05-2023 03:33:13 ERROR [TIMEOUT] Restart script!
+16-05-2023 03:33:14 INFO STARTED TIME: 03:33:14 16/05/2023
+16-05-2023 03:34:13 ERROR [TIMEOUT] Restart script!
+16-05-2023 03:34:14 INFO STARTED TIME: 03:34:14 16/05/2023
+16-05-2023 03:51:01 INFO [INSERTED] Inserted 2000 Products to Category ID 21286
+16-05-2023 04:08:03 INFO [INSERTED] Inserted 2000 Products to Category ID 21288
+16-05-2023 04:14:36 INFO [INSERTED] Inserted 0790 Products to Category ID 24996
+16-05-2023 04:18:59 ERROR [TIMEOUT] Restart script!
+16-05-2023 04:18:59 INFO STARTED TIME: 04:18:59 16/05/2023
+16-05-2023 04:35:47 INFO [INSERTED] Inserted 2000 Products to Category ID 24998
+16-05-2023 04:52:40 INFO [INSERTED] Inserted 2000 Products to Category ID 25000
+16-05-2023 04:53:07 INFO [INSERTED] Inserted 0072 Products to Category ID 21302
+16-05-2023 05:09:55 INFO [INSERTED] Inserted 2000 Products to Category ID 21304
+16-05-2023 05:22:47 INFO [INSERTED] Inserted 1528 Products to Category ID 21306
+16-05-2023 05:39:39 INFO [INSERTED] Inserted 2000 Products to Category ID 21308
+16-05-2023 05:49:36 INFO [INSERTED] Inserted 1151 Products to Category ID 21310
+16-05-2023 05:49:55 INFO [INSERTED] Inserted 0047 Products to Category ID 21312
+16-05-2023 05:55:01 INFO [INSERTED] Inserted 0626 Products to Category ID 21314
+16-05-2023 06:11:47 INFO [INSERTED] Inserted 2000 Products to Category ID 21316
+16-05-2023 06:11:48 INFO [INSERTED] Inserted 0003 Products to Category ID 21318
+16-05-2023 06:12:00 INFO [INSERTED] Inserted 0033 Products to Category ID 21320
+16-05-2023 06:12:31 INFO [INSERTED] Inserted 0023 Products to Category ID 21322
+16-05-2023 06:13:50 INFO [INSERTED] Inserted 0154 Products to Category ID 21326
+16-05-2023 06:14:30 INFO [INSERTED] Inserted 0085 Products to Category ID 21328
+16-05-2023 06:20:01 INFO [INSERTED] Inserted 0663 Products to Category ID 21330
+16-05-2023 06:20:52 INFO [INSERTED] Inserted 0112 Products to Category ID 21332
+16-05-2023 06:21:00 INFO [INSERTED] Inserted 0020 Products to Category ID 25002
+16-05-2023 06:24:05 INFO [INSERTED] Inserted 0350 Products to Category ID 25004
+16-05-2023 06:24:27 INFO [INSERTED] Inserted 0030 Products to Category ID 25006
+16-05-2023 06:25:02 INFO [INSERTED] Inserted 0097 Products to Category ID 25040
+16-05-2023 06:25:41 INFO [INSERTED] Inserted 0048 Products to Category ID 25042
+16-05-2023 06:26:04 INFO [INSERTED] Inserted 0066 Products to Category ID 25046
+16-05-2023 06:26:05 INFO [INSERTED] Inserted 0001 Products to Category ID 25048
+16-05-2023 06:27:51 INFO [INSERTED] Inserted 0204 Products to Category ID 25050
+16-05-2023 06:29:41 INFO [INSERTED] Inserted 0213 Products to Category ID 25052
+16-05-2023 06:39:26 INFO [INSERTED] Inserted 1154 Products to Category ID 21336
+16-05-2023 06:41:38 INFO [INSERTED] Inserted 0251 Products to Category ID 21338
+16-05-2023 06:42:12 INFO [INSERTED] Inserted 0092 Products to Category ID 21340
+16-05-2023 06:59:08 INFO [INSERTED] Inserted 2000 Products to Category ID 21342
+16-05-2023 07:08:57 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/ssl.py", line 501, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/ssl.py", line 1041, in _create
+    self.do_handshake()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/ssl.py", line 1310, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:1129)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products/165181477 (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 95, in <module>
+    prod_detail = COMMON.send_get_request(PRODUCT_DETAIL_API % p_id)
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 24, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products/165181477 (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+16-05-2023 07:08:57 ERROR ERROR AT CATEGORY: 21344
+16-05-2023 07:08:57 ERROR ERROR AT PRODUCT: 165181477
+16-05-2023 07:08:57 ERROR [ERROR] Restart script!
+16-05-2023 07:08:58 INFO STARTED TIME: 07:08:58 16/05/2023
+16-05-2023 07:22:37 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/ssl.py", line 501, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/ssl.py", line 1041, in _create
+    self.do_handshake()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/ssl.py", line 1310, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:1129)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products/178757810 (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 95, in <module>
+    prod_detail = COMMON.send_get_request(PRODUCT_DETAIL_API % p_id)
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 24, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products/178757810 (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+16-05-2023 07:22:38 ERROR ERROR AT CATEGORY: 21344
+16-05-2023 07:22:38 ERROR ERROR AT PRODUCT: 178757810
+16-05-2023 07:22:38 ERROR [ERROR] Restart script!
+16-05-2023 09:11:37 INFO STARTED TIME: 09:11:37 16/05/2023
+16-05-2023 09:28:24 INFO [INSERTED] Inserted 2000 Products to Category ID 21344
+16-05-2023 09:29:05 INFO [INSERTED] Inserted 0084 Products to Category ID 25008
+16-05-2023 09:29:11 INFO STARTED TIME  : 09:11:37 16/05/2023
+16-05-2023 09:29:11 INFO FINISHED TIME : 09:29:11 16/05/2023
+16-05-2023 09:29:11 INFO EXECUTION TINE: 0:17:34.316254
+16-05-2023 09:29:11 INFO NUMBER OF REQUEST HAD BEEN SENT: 2120
+16-05-2023 09:31:14 INFO STARTED TIME: 09:31:14 16/05/2023
+16-05-2023 09:32:36 INFO STARTED TIME  : 09:31:14 16/05/2023
+16-05-2023 09:32:36 INFO FINISHED TIME : 09:32:36 16/05/2023
+16-05-2023 09:32:36 INFO EXECUTION TINE: 0:01:22.514040
+16-05-2023 09:32:36 INFO NUMBER OF REQUEST HAD BEEN SENT: 3
+16-05-2023 09:33:23 INFO STARTED TIME: 09:33:23 16/05/2023
+16-05-2023 09:50:10 INFO [INSERTED] Inserted 2000 Products to Category ID 21348
+16-05-2023 09:50:19 INFO STARTED TIME  : 09:33:23 16/05/2023
+16-05-2023 09:50:19 INFO FINISHED TIME : 09:50:19 16/05/2023
+16-05-2023 09:50:19 INFO EXECUTION TINE: 0:16:55.828813
+16-05-2023 09:50:19 INFO NUMBER OF REQUEST HAD BEEN SENT: 2043
+16-05-2023 09:52:40 INFO STARTED TIME: 09:52:40 16/05/2023
+16-05-2023 10:09:24 INFO [INSERTED] Inserted 2000 Products to Category ID 21350
+16-05-2023 10:26:12 INFO [INSERTED] Inserted 2000 Products to Category ID 21352
+16-05-2023 10:43:00 INFO [INSERTED] Inserted 2000 Products to Category ID 21354
+16-05-2023 10:59:56 INFO [INSERTED] Inserted 2000 Products to Category ID 21358
+16-05-2023 11:16:48 INFO [INSERTED] Inserted 2000 Products to Category ID 21360
+16-05-2023 11:27:30 ERROR [TIMEOUT] Restart script!
+16-05-2023 11:27:31 INFO STARTED TIME: 11:27:31 16/05/2023
+16-05-2023 11:27:36 ERROR [TIMEOUT] Restart script!
+16-05-2023 11:27:37 INFO STARTED TIME: 11:27:37 16/05/2023
+16-05-2023 11:44:26 INFO [INSERTED] Inserted 2000 Products to Category ID 21362
+16-05-2023 11:54:06 INFO [INSERTED] Inserted 1140 Products to Category ID 21364
+16-05-2023 12:10:52 INFO [INSERTED] Inserted 2000 Products to Category ID 21368
+16-05-2023 12:27:49 INFO [INSERTED] Inserted 2000 Products to Category ID 21370
+16-05-2023 12:44:30 INFO [INSERTED] Inserted 2000 Products to Category ID 21372
+16-05-2023 12:44:42 INFO [INSERTED] Inserted 0005 Products to Category ID 21374
+16-05-2023 13:01:47 INFO [INSERTED] Inserted 2000 Products to Category ID 21384
+16-05-2023 13:14:09 INFO [INSERTED] Inserted 1463 Products to Category ID 21386
+16-05-2023 13:26:50 ERROR ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+16-05-2023 13:26:50 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 761, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 444, in _error_catcher
+    yield
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 828, in read_chunked
+    self._update_chunk_length()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 765, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 816, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 624, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 857, in read_chunked
+    self._original_response.close()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/contextlib.py", line 137, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 461, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 94, in <module>
+    prod_detail = COMMON.send_get_request(PRODUCT_DETAIL_API % p_id)
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 24, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 745, in send
+    r.content
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 899, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 818, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+16-05-2023 13:26:50 ERROR ERROR AT CATEGORY: 21388
+16-05-2023 13:26:50 ERROR ERROR AT PRODUCT: 101800785
+16-05-2023 13:26:50 ERROR RESTART SCRIPT!
+16-05-2023 13:26:51 INFO STARTED TIME: 13:26:51 16/05/2023
+16-05-2023 13:43:51 INFO [INSERTED] Inserted 2000 Products to Category ID 21388
+16-05-2023 13:59:48 ERROR HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products/241946566 (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+16-05-2023 13:59:59 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/ssl.py", line 501, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/ssl.py", line 1041, in _create
+    self.do_handshake()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/ssl.py", line 1310, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:1129)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products/241946566 (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 94, in <module>
+    prod_detail = COMMON.send_get_request(PRODUCT_DETAIL_API % p_id)
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 24, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products/241946566 (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+16-05-2023 13:59:59 ERROR ERROR AT CATEGORY: 21390
+16-05-2023 14:00:00 ERROR ERROR AT PRODUCT: 241946566
+16-05-2023 14:00:00 ERROR RESTART SCRIPT!
+16-05-2023 14:22:17 INFO STARTED TIME: 14:22:17 16/05/2023
+16-05-2023 14:36:42 ERROR [TIMEOUT] Restart script!
+16-05-2023 14:36:42 INFO STARTED TIME: 14:36:42 16/05/2023
+16-05-2023 14:39:19 INFO STARTED TIME  : 14:36:42 16/05/2023
+16-05-2023 14:39:19 INFO FINISHED TIME : 14:39:19 16/05/2023
+16-05-2023 14:39:19 INFO EXECUTION TINE: 0:02:36.533744
+16-05-2023 14:39:19 INFO NUMBER OF REQUEST HAD BEEN SENT: 319
+16-05-2023 14:42:37 INFO STARTED TIME: 14:42:37 16/05/2023
+16-05-2023 14:59:07 INFO [INSERTED] Inserted 2000 Products to Category ID 21390
+16-05-2023 15:00:31 INFO [INSERTED] Inserted 0141 Products to Category ID 21392
+16-05-2023 15:17:10 INFO [INSERTED] Inserted 2000 Products to Category ID 21396
+16-05-2023 15:34:03 INFO [INSERTED] Inserted 2000 Products to Category ID 21398
+16-05-2023 15:50:52 INFO [INSERTED] Inserted 2000 Products to Category ID 21400
+16-05-2023 15:52:00 INFO [INSERTED] Inserted 0148 Products to Category ID 21402
+16-05-2023 16:06:42 ERROR [TIMEOUT] Restart script!
+16-05-2023 16:06:43 INFO STARTED TIME: 16:06:43 16/05/2023
+16-05-2023 16:23:30 INFO [INSERTED] Inserted 2000 Products to Category ID 21404
+16-05-2023 16:32:55 INFO [INSERTED] Inserted 1130 Products to Category ID 21406
+16-05-2023 16:32:58 INFO STARTED TIME  : 16:06:43 16/05/2023
+16-05-2023 16:32:58 INFO FINISHED TIME : 16:32:58 16/05/2023
+16-05-2023 16:32:58 INFO EXECUTION TINE: 0:26:14.627576
+16-05-2023 16:32:58 INFO NUMBER OF REQUEST HAD BEEN SENT: 3169

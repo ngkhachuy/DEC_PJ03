@@ -25,7 +25,7 @@ def import_date(file):
 def read_data_from_db():
     engine = db.create_engine('mysql+mysqlconnector://root:123456@localhost:3306/TIKI')
     conn = engine.connect()
-    rtn = pd.read_sql(db.text(open('SQL/modeling_categories.sql', 'r').read()), conn)
+    rtn = pd.read_sql(db.text(open('SQL/normalize_categories.sql', 'r').read()), conn)
     conn.close()
     return rtn
 

@@ -9,7 +9,7 @@ import COMMON
 
 if __name__ == '__main__':
 
-    LOGGER = LOGGER = COMMON.get_log('log/logging_download_images.log')
+    LOGGER = LOGGER = COMMON.get_log('log/download_images.log')
 
     START_TIME = datetime.datetime.now()
     msg = 'STARTED TIME: ' + START_TIME.strftime("%H:%M:%S %d/%m/%Y")
@@ -84,4 +84,4 @@ if __name__ == '__main__':
         LOGGER.error('ERROR AT PRODUCT: %s' % str(p_id))
 
     finally:
-        COMMON.print_execution_time(START_TIME, 'log/logging_download_images.log')
+        COMMON.print_execution_time(START_TIME, 'log/download_images.log')
