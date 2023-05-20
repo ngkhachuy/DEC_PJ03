@@ -14,7 +14,6 @@ from MODELS.PRODUCT import PRODUCT
 if __name__ == '__main__':
 
     LOGGER = COMMON.get_log('log/crawling.log')
-    LOGGER_ERROR = COMMON.get_log('log/crawling_error.log')
 
     START_TIME = datetime.datetime.now()
     msg = 'STARTED TIME: ' + START_TIME.strftime("%H:%M:%S %d/%m/%Y")
@@ -23,6 +22,7 @@ if __name__ == '__main__':
 
     # ------------------------------ Note for tracking
     COUNT_OF_REQUEST = 0
+    COUNT_OF_PRODUCT = 0
     cat_id = ''
     p_id = ''
 
@@ -41,7 +41,6 @@ if __name__ == '__main__':
         with open('data/DONE_CATEGORIES', 'r') as f:
             FINISHED_CATEGORIES = [x.strip() for x in f.readlines()]
 
-        COUNT_OF_PRODUCT = 0
         COUNT_OF_CURRENT_CATEGORIES = 0
         COUNT_OF_CATEGORIES_WILL_BE_PROCESSED = len(CATEGORIES.index) - len(FINISHED_CATEGORIES)
 
@@ -80,20 +79,21 @@ if __name__ == '__main__':
                     # ------------------------------ Send API request, get product's details
                     prod_detail = COMMON.send_get_request(COMMON.PRODUCT_DETAIL_API % p_id)
                     COUNT_OF_REQUEST += 1
-                    print('REQUEST SENT: %i' % COUNT_OF_REQUEST, end='\r')
 
                     # ------------------------------ PRODUCT's NAME
-                    p_name = prod_detail['name']
+                    p_name = prod_detail.get('name')
 
                     # ------------------------------ PRODUCT's Short Description
-                    p_short_description = prod_detail['short_description']
+                    p_short_description = prod_detail.get('short_description')
 
                     # ------------------------------ PRODUCT's Description
-                    p_description_tmp = prod_detail['description']
-                    p_description = BeautifulSoup(p_description_tmp, 'html.parser').text
+                    p_description_tmp = prod_detail.get('description')
+                    p_description = None
+                    if p_description_tmp is not None:
+                        p_description = BeautifulSoup(p_description_tmp, 'html.parser').text
 
                     # ------------------------------ PRODUCT's URL
-                    p_url = prod_detail['short_url']
+                    p_url = prod_detail.get('short_url')
 
                     # ------------------------------ PRODUCT's RATING
                     p_rating = prod_detail.get('rating_average')
@@ -102,7 +102,7 @@ if __name__ == '__main__':
                     p_sold_count = prod_detail.get('all_time_quantity_sold')
 
                     # ------------------------------ PRODUCT's CURRENT PRICE
-                    p_current_price = prod_detail['price']
+                    p_current_price = prod_detail.get('price')
 
                     # ------------------------------ PRODUCT's IMAGES
                     prod_images = prod_detail.get('images')
@@ -115,14 +115,14 @@ if __name__ == '__main__':
                     prod_specifications = prod_detail.get('specifications')
                     prod_origin = None
                     prod_brand_country = None
-                    for spec in prod_specifications:
-                        if spec['name'] == 'Content':
-                            for attr in spec['attributes']:
-                                if attr['code'] == 'origin':
-                                    prod_origin = attr['value']
-
-                                if attr['code'] == 'brand_country':
-                                    prod_brand_country = attr['value']
+                    if prod_specifications is not None:
+                        for spec in prod_specifications:
+                            if spec['name'] == 'Content':
+                                for attr in spec['attributes']:
+                                    if attr['code'] == 'origin':
+                                        prod_origin = attr['value']
+                                    if attr['code'] == 'brand_country':
+                                        prod_brand_country = attr['value']
                     if prod_origin is None:
                         p_origin = prod_brand_country
                     else:
@@ -132,6 +132,8 @@ if __name__ == '__main__':
                     LIST_PRODUCT.append(PRODUCT(p_id, p_name, p_short_description, p_description, p_url, p_rating,
                                                 p_sold_count, p_current_price, p_images_url, p_origin,
                                                 cat_id, datetime.datetime.now()).__dict__)
+
+                    print('PRODUCTs COUNT : %s' % str(len(LIST_PRODUCT)).zfill(4), end='\r')
 
                 page += 1
 
@@ -165,10 +167,13 @@ if __name__ == '__main__':
         print('ERROR AT PRODUCT: %s' % str(p_id))
         print('<--------------------------------------------------------->')
 
-        LOGGER.error(e)
-        LOGGER_ERROR.error(traceback.format_exc())
-        LOGGER_ERROR.error('ERROR AT CATEGORY: %s' % str(cat_id))
-        LOGGER_ERROR.error('ERROR AT PRODUCT: %s' % str(p_id))
+        LOGGER.error(traceback.format_exc())
+        LOGGER.error('ERROR AT CATEGORY: %s' % str(cat_id))
+        LOGGER.error('ERROR AT PRODUCT: %s' % str(p_id))
+
+        COMMON.print_execution_time(START_TIME, 'log/crawling.log')
+        LOGGER.info('NUMBER OF REQUEST HAD BEEN SENT: %s' % str(COUNT_OF_REQUEST))
+        LOGGER.info('TOTAL OF PRODUCT HAD BEEN INSERTD: %s' % str(COUNT_OF_PRODUCT))
 
         print("-- RESTART SCRIPT! ------")
         LOGGER.error("RESTART SCRIPT!")
@@ -177,3 +182,4 @@ if __name__ == '__main__':
     finally:
         COMMON.print_execution_time(START_TIME, 'log/crawling.log')
         LOGGER.info('NUMBER OF REQUEST HAD BEEN SENT: %s' % str(COUNT_OF_REQUEST))
+        LOGGER.info('TOTAL OF PRODUCT HAD BEEN INSERTD: %s' % str(COUNT_OF_PRODUCT))

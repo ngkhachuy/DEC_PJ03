@@ -40,9 +40,9 @@ def send_get_request(url):
         # Repeat until success
         if b'Checking your browser' in res_tmp:
             if count > 0:
-                print("-- Sleep %is (Repeat) --" % (10 + count))
+                print("-- Sleep %is (Repeat)" % (10 + count), end='\r')
             else:
-                print('-- Sleep 10s -----------')
+                print('-- Sleep 10s --------', end='\r')
 
             sleep(10 + count)
             count += 1

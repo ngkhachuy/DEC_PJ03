@@ -37,5 +37,4 @@ class PRODUCT_SQL(Base):
     sold_count = Column(Integer)
     currrent_price = Column(Integer)
     category = Column(String(10))
-    origin = Column(String(255))
     created_time = Column(DATETIME)
