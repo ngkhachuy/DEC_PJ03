@@ -5,16 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71e9eea6-d4a3-4c8b-94c1-7ebacd8bfea5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/analysis_book_sold.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/search_ingredient.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COMMON.py" beforeDir="false" afterPath="$PROJECT_DIR$/COMMON.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/DONE_CATEGORIES" beforeDir="false" afterPath="$PROJECT_DIR$/data/DONE_CATEGORIES" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/categories_20230510_132551.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/categories_20230510_132551.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/categories_with_relationship (copy).csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/categories_with_relationship (copy).csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/categories_with_relationship.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/categories_with_relationship.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/categories_with_relationship_copy.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/categories_with_relationship_copy.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/crawling.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/crawling.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transfer_products_split.py" beforeDir="false" afterPath="$PROJECT_DIR$/transfer_products_split.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/BEST_RATING_20230516_16:06:38.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/BEST_RATING_20230517_08:47:12.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/BEST_RATING_20230518_15:12:03.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/BEST_RATING_20230518_15:12:12.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/BEST_SELLER_20230516_16:06:38.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/BEST_SELLER_20230517_08:47:12.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/BEST_SELLER_20230518_15:12:03.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/BEST_SELLER_20230518_15:12:12.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/LOWEST_PRICE_20230516_16:06:38.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/LOWEST_PRICE_20230517_08:47:13.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/LOWEST_PRICE_20230518_15:12:03.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/LOWEST_PRICE_20230518_15:12:12.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/PRODUCT_QUANTITY_20230516_16:06:34.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/PRODUCT_QUANTITY_20230517_08:47:07.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/PRODUCT_QUANTITY_20230517_10:00:20.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/PRODUCT_QUANTITY_20230518_15:11:49.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/PRODUCT_QUANTITY_20230518_15:12:06.xlsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -4465,3 +4465,5 @@ requests.exceptions.SSLError: HTTPSConnectionPool(host='tiki.vn', port=443): Max
 21-05-2023 14:39:50 INFO [INSERTED] Inserted 1536 Products to Category ID 4609
 21-05-2023 14:41:12 INFO [INSERTED] Inserted 0141 Products to Category ID 4610
 21-05-2023 14:58:29 INFO [INSERTED] Inserted 2000 Products to Category ID 5276
+21-05-2023 15:12:10 INFO [INSERTED] Inserted 1575 Products to Category ID 5277
+21-05-2023 15:15:21 INFO [INSERTED] Inserted 0395 Products to Category ID 5278
