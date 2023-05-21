@@ -29,10 +29,15 @@ Lưu ý, chỉ trích chọn ra thông tin miêu tả “Thành phần” trong 
 3. `get_product_API.py` : Get products by API
 4. `get_product.py` : Get products by Selenium and urllib3
 5. `transfer_products.py` : Transfer products's data from MongoDB to MySQL
-6. `download_images.py` : Download images of product
-7. `COMMON.py` : Common function
-8. `/log/logging.log` : Log file of getting products
-9. `/log/logging_download_images.log` : log file of downloading images
+6. `transfer_products_iterate.py` : Transfer products's data from MongoDB to MySQL (one by one)
+7. `transfer_products_split.py` : Transfer products's data from MongoDB to MySQL (one by one)
+8. `analysis.py` : Do analysis
+9. `search_ingredient.py` : Search for product that have "Thành phần" on description
+10. `analysis_book_sold.py` : Analysis of book selling
+11. `download_images.py` : Download images of product
+12. `COMMON.py` : Common function
+13. `/log/crawling.log` : Log file of getting products
+14. `/log/download_images.log` : log file of downloading images
 
-10. `/data/DONE_CATEGORIES`
-11. `/data/DONE_PRODUCT`
+15. `/data/DONE_CATEGORIES` : Tracking categories what have been crawled
+16. `/data/DONE_PRODUCT`

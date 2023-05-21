@@ -1,5 +1,6 @@
 import datetime
 
+import numpy as np
 import pymongo
 import pandas as pd
 import sqlalchemy as db
@@ -13,6 +14,9 @@ if __name__ == '__main__':
     START_TIME = datetime.datetime.now()
     print('STARTED TIME  : ' + START_TIME.strftime("%H:%M:%S %d/%m/%Y"))
 
+    inserted_product = []
+    TOTAL_INSERTED = 0
+
     # ------------------------------ Connect to MongoDB
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")
     mydb = myclient["TIKI"]
@@ -24,19 +28,55 @@ if __name__ == '__main__':
     session = sessionmaker()
     session.configure(bind=engine)
     my_session = session()
-    metadata = db.MetaData()
 
     # ------------------------------ Drop and create table PRODUCT
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
 
-    # ------------------------------ Load Data to DataFrame
-    data = pd.DataFrame(list(mycol.find({}, {'_id': 0, 'prod_id': 1, 'name': 1,
-                                             'short_description': 1, 'description': 1, 'url': 1,
-                                             'rating': 1, 'sold_count': 1, 'currrent_price': 1,
-                                             'category': 1, 'created_time': 1})))
-    # ------------------------------ Clean data
-    data.drop_duplicates(['prod_id'], inplace=True)
+    # ------------------------------ Config for bulk insert
+    my_conn.execute(db.sql.text('set global max_allowed_packet=9999999999999999999;'))
+    my_conn.commit()
+    my_conn.close()
+    my_session.close()
 
+    # ------------------------------ Re-connect to MySQL
+    engine = db.create_engine('mysql+mysqlconnector://root:123456@localhost:3306/TIKI')
+    my_conn = engine.connect()
+    session = sessionmaker()
+    session.configure(bind=engine)
+    my_session = session()
+
+    # ------------------------------ Count total product will be insert
+    total_products = mycol.count_documents({})
+    limit = 200000
+    count_split = int(np.floor(total_products/limit))
+
+    for i in range(count_split + 1):
+
+        # ------------------------------ Load Data to DataFrame
+        data = pd.DataFrame(list(mycol
+                                 .find({}, {'_id': 0, 'prod_id': 1, 'name': 1,
+                                            'short_description': 1, 'description': 1, 'url': 1,
+                                            'rating': 1, 'sold_count': 1, 'currrent_price': 1,
+                                            'category': 1, 'created_time': 1})
+                                 .skip(i * limit)
+                                 .limit(limit)))
+        # ------------------------------ Drop duplicate
+        data.drop_duplicates(['prod_id'], inplace=True)
+        data = data.loc[~data['prod_id'].isin(inserted_product)]
+
+        # ------------------------------ Insert into MySQL
+        print("Starting insert %i records." % len(data.index))
+        data.to_sql('product', engine, if_exists='append', index=False)
+        TOTAL_INSERTED += len(data.index)
+        inserted_product.extend(list(data['prod_id']))
+
+    my_session.commit()
+    my_session.close()
+
+    FINISHED = datetime.datetime.now()
+    print('FINISHED TIME : ' + FINISHED.strftime("%H:%M:%S %d/%m/%Y"))
+    print('EXECUTION TINE: ' + str(FINISHED - START_TIME))
+    print('INSERTED RECORDS: %i' % TOTAL_INSERTED)
 
 

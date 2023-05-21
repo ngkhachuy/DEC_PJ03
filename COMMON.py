@@ -1,6 +1,7 @@
 import json
 import datetime
 import logging
+import re
 
 import requests
 from time import sleep
@@ -11,6 +12,11 @@ LIST_PRODUCT_API = 'https://tiki.vn/api/v2/products?' \
                    'category=%s&' \
                    'page=%i'
 PRODUCT_DETAIL_API = 'https://tiki.vn/api/v2/products/%s'
+
+REPLACE_TEXT = 'Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. ' \
+               'Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng ' \
+               'mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng cồng kềnh, ' \
+               'thuế nhập khẩu (đối với đơn hàng giao từ nước ngoài có giá trị trên 1 triệu đồng).....'
 
 
 def print_execution_time(stared, file_log):
@@ -57,3 +63,13 @@ def get_log(file_log):
                         datefmt='%d-%m-%Y %H:%M:%S',
                         level=logging.INFO)
     return logging.getLogger()
+
+
+def search_ingredient(txt):
+    rtn = re.sub(r'\n+', '\n', txt.replace('\u00A0', "").replace(REPLACE_TEXT, '').strip())
+    f = re.search("Thành phần", rtn, re.IGNORECASE)
+    if f is not None:
+        return rtn[f.start():]
+    else:
+        return rtn
+

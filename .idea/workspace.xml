@@ -5,17 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71e9eea6-d4a3-4c8b-94c1-7ebacd8bfea5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/transfer_products_iterate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analysis_book_sold.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/search_ingredient.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COMMON.py" beforeDir="false" afterPath="$PROJECT_DIR$/COMMON.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MODELS/PRODUCT.py" beforeDir="false" afterPath="$PROJECT_DIR$/MODELS/PRODUCT.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/DONE_CATEGORIES" beforeDir="false" afterPath="$PROJECT_DIR$/data/DONE_CATEGORIES" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/get_product_API.py" beforeDir="false" afterPath="$PROJECT_DIR$/get_product_API.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/crawling.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/crawling.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/crawling_error.log" beforeDir="false" afterPath="$PROJECT_DIR$/transfer_products_split.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transfer_products.py" beforeDir="false" afterPath="$PROJECT_DIR$/transfer_products.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transfer_products_split.py" beforeDir="false" afterPath="$PROJECT_DIR$/transfer_products_split.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +41,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/ngkhachuy/PROJECT/DEC_PJ2/WebScraping&quot;
   }
@@ -91,9 +91,19 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/analysis.py</url>
-          <line>152</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/analysis_book_sold.py</url>
+          <line>48</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/analysis_book_sold.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/_test.py</url>
+          <line>20</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

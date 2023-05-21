@@ -69,10 +69,7 @@ def get_product_origin(collection):
     print("PRODUCT's ORIGIN: %s" % f_name)
 
     # plotting data on chart
-    plt.pie(db_count_by_origin_TOP10["COUNT"], labels=db_count_by_origin_TOP10["ORIGIN"],
-            autopct='%.0f%%')
-
-    # displaying chart
+    plt.pie(db_count_by_origin_TOP10["COUNT"], labels=db_count_by_origin_TOP10["ORIGIN"], autopct='%.0f%%')
     plt.show()
 
 
