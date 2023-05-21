@@ -30,7 +30,7 @@ Lưu ý, chỉ trích chọn ra thông tin miêu tả “Thành phần” trong 
 4. `get_product.py` : Get products by Selenium and urllib3
 5. `transfer_products.py` : Transfer products's data from MongoDB to MySQL
 6. `transfer_products_iterate.py` : Transfer products's data from MongoDB to MySQL (one by one)
-7. `transfer_products_split.py` : Transfer products's data from MongoDB to MySQL (one by one)
+7. `transfer_products_split.py` : Transfer products's data from MongoDB to MySQL (each 200,000 records)
 8. `analysis.py` : Do analysis
 9. `search_ingredient.py` : Search for product that have "Thành phần" on description
 10. `analysis_book_sold.py` : Analysis of book selling

@@ -2,6 +2,8 @@ import datetime
 
 import pymongo
 import pandas as pd
+from matplotlib import pyplot as plt
+
 
 if __name__ == '__main__':
     # ------------------------------ Connect to MongoDB
@@ -26,13 +28,13 @@ if __name__ == '__main__':
         {'category': {'$in': list(CATEGORIES_EN_BOOK['LEAF_CAT_ID'])}},
         {'_id': 0, 'sold_count': 1})))
 
-    # total_sold_vi_book = vi_books['sold_count'].sum()
-    # total_sold_en_book = en_books['sold_count'].sum()
-    # total_sold = pd.DataFrame({'BOOK': filter_select, 'COUNT': [total_sold_vi_book, total_sold_vi_book]})
+    total_sold_vi_book = vi_books['sold_count'].sum()
+    total_sold_en_book = en_books['sold_count'].sum()
+    total_sold = pd.DataFrame({'BOOK': filter_select, 'COUNT': [total_sold_vi_book, total_sold_vi_book]})
 
     # plotting data on chart
-    # plt.pie(total_sold["COUNT"], labels=total_sold["BOOK"], autopct='%.0f%%')
-    # plt.show()
+    plt.pie(total_sold["COUNT"], labels=total_sold["BOOK"], autopct='%.0f%%')
+    plt.show()
 
     total_sold_by_categories = pd.DataFrame(
         list(
