@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71e9eea6-d4a3-4c8b-94c1-7ebacd8bfea5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analysis_book_sold.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis_book_sold.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/DONE_CATEGORIES" beforeDir="false" afterPath="$PROJECT_DIR$/data/DONE_CATEGORIES" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/crawling.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/crawling.log" afterDir="false" />
@@ -89,6 +89,11 @@
           <url>file://$PROJECT_DIR$/_test.py</url>
           <line>20</line>
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/analysis_book_sold.py</url>
+          <line>47</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

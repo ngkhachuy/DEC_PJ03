@@ -30,7 +30,7 @@ if __name__ == '__main__':
 
     total_sold_vi_book = vi_books['sold_count'].sum()
     total_sold_en_book = en_books['sold_count'].sum()
-    total_sold = pd.DataFrame({'BOOK': filter_select, 'COUNT': [total_sold_vi_book, total_sold_vi_book]})
+    total_sold = pd.DataFrame({'BOOK': filter_select, 'COUNT': [total_sold_vi_book, total_sold_en_book]})
 
     # plotting data on chart
     plt.pie(total_sold["COUNT"], labels=total_sold["BOOK"], autopct='%.0f%%')
@@ -41,14 +41,14 @@ if __name__ == '__main__':
             my_col.aggregate([
                 {'$match': {'category': {'$in': list(CATEGORIES['LEAF_CAT_ID'])}}},
                 {'$group': {
-                    '_id': 'category',
+                    '_id': '$category',
                     'TOTAL_SOLD': {
                         '$sum': "$sold_count"
-                    }}},
-                {'$sort': {'TOTAL_SOLD': -1}}])))
+                    }}}])))
     total_sold_by_categories.rename(columns={"_id": "LEAF_CAT_ID"},  inplace=True)
 
     total_sold_by_categories = total_sold_by_categories.join(CATEGORIES.set_index('LEAF_CAT_ID'), on='LEAF_CAT_ID')
+    total_sold_by_categories.sort_values('TOTAL_SOLD', ascending=False, inplace=True)
 
     f_name = "result/TOTAL_BOOK_SOLD_%s.csv" % datetime.datetime.now().strftime("%Y%m%d_%H:%M:%S")
     total_sold_by_categories.to_csv(f_name, index=False)
