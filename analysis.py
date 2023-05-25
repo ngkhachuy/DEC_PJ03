@@ -23,16 +23,17 @@ def get_product_quantity(collection):
                                                            on='LEAF_CAT_ID')
     db_product_quantity_by_category.sort_values(['name_1', 'name_2', 'name_3', 'name_4', 'name_5'],
                                                 inplace=True)
+    db_product_quantity_by_category.drop(columns=['LEAF_CAT_ID', 'LEAF_CAT_URL'], inplace=True)
+    db_product_quantity_by_category.sort_values('COUNT', ascending=False, inplace=True)
+    db_product_quantity_by_category.rename(columns={"name_1": "Danh mục 1", "name_2": "Danh mục 2",
+                                                    "name_3": "Danh mục 3", "name_4": "Danh mục 4",
+                                                    "name_5": "Danh mục 5", "COUNT": "Số lượng sản phẩm"}, inplace=True)
     f_name = "result/PRODUCT_QUANTITY_%s.xlsx" % datetime.datetime.now().strftime("%Y%m%d_%H:%M:%S")
     db_product_quantity_by_category.to_excel(f_name, index=False)
     print("TOTAL QUANTITY BY CATEGORY: %s" % f_name)
 
 
 def get_product_origin(collection):
-
-    total_product_quantity = collection.count_documents({})
-    product_have_no_origin = collection.count_documents({"origin": {"$in": [None, "Không có"]}})
-    product_have_origin = total_product_quantity - product_have_no_origin
 
     # ------------------------------ Cleaning data
     collection.update_many({"origin": "Không có"}, {"$set": {"origin": None}})
@@ -70,6 +71,7 @@ def get_product_origin(collection):
 
     # plotting data on chart
     plt.pie(db_count_by_origin_TOP10["COUNT"], labels=db_count_by_origin_TOP10["ORIGIN"], autopct='%.0f%%')
+    plt.title("TOP10 PRODUCT'S ORIGIN")
     plt.show()
 
 

@@ -25,6 +25,7 @@ if __name__ == '__main__':
     COUNT_OF_PRODUCT = 0
     cat_id = ''
     p_id = ''
+    is_err = False
 
     try:
 
@@ -138,11 +139,12 @@ if __name__ == '__main__':
                 page += 1
 
             # ------------------------------ INSERT TO DATABASE
-            if len(LIST_PRODUCT) > 0:
+            prod_count = len(LIST_PRODUCT)
+            if prod_count > 0:
                 mycol.insert_many(LIST_PRODUCT)
             COUNT_OF_CURRENT_CATEGORIES += 1
-            COUNT_OF_PRODUCT += len(LIST_PRODUCT)
-            msg = "[INSERTED] Inserted %s Products to Category ID %s" % (str(len(LIST_PRODUCT)).zfill(4), cat_id)
+            COUNT_OF_PRODUCT += prod_count
+            msg = "[INSERTED] Inserted %s Products to Category ID %s" % (str(prod_count).zfill(4), cat_id)
             print(msg)
             LOGGER.info(msg)
             print("\t[PROCESSED] %s/%s CATEGORIES with %i PRODUCTS" % (str(COUNT_OF_CURRENT_CATEGORIES),
@@ -155,31 +157,17 @@ if __name__ == '__main__':
                 file.write("\n")
 
     except requests.exceptions.Timeout:
-        print("[TIMEOUT] Restart script!")
-        LOGGER.error("[TIMEOUT] Restart script!")
-        os.execv(sys.executable, ['python'] + sys.argv)
-
+        COMMON.tracking_error(LOGGER, "[REQUEST TIMEOUT]", "REQUEST TIMEOUT", cat_id, p_id)
+        is_err = True
     except Exception as e:
-        print('<-------------------- [ERROR MESSAGE] -------------------->\n')
-        print(e)
-        print('<--------------------------------------------------------->')
-        print('ERROR AT CATEGORY: %s' % str(cat_id))
-        print('ERROR AT PRODUCT: %s' % str(p_id))
-        print('<--------------------------------------------------------->')
-
-        LOGGER.error(traceback.format_exc())
-        LOGGER.error('ERROR AT CATEGORY: %s' % str(cat_id))
-        LOGGER.error('ERROR AT PRODUCT: %s' % str(p_id))
-
-        COMMON.print_execution_time(START_TIME, 'log/crawling.log')
-        LOGGER.info('NUMBER OF REQUEST HAD BEEN SENT: %s' % str(COUNT_OF_REQUEST))
-        LOGGER.info('TOTAL OF PRODUCT HAD BEEN INSERTD: %s' % str(COUNT_OF_PRODUCT))
-
-        print("-- RESTART SCRIPT! ------")
-        LOGGER.error("RESTART SCRIPT!")
-        os.execv(sys.executable, ['python'] + sys.argv)
-
+        COMMON.tracking_error(LOGGER, e, traceback.format_exc(), cat_id, p_id)
+        is_err = True
     finally:
-        COMMON.print_execution_time(START_TIME, 'log/crawling.log')
-        LOGGER.info('NUMBER OF REQUEST HAD BEEN SENT: %s' % str(COUNT_OF_REQUEST))
-        LOGGER.info('TOTAL OF PRODUCT HAD BEEN INSERTD: %s' % str(COUNT_OF_PRODUCT))
+        COMMON.print_execution_time(LOGGER, START_TIME)
+        LOGGER.info('NUMBER OF REQUEST HAVE BEEN SENT: %s' % str(COUNT_OF_REQUEST))
+        LOGGER.info('TOTAL OF PRODUCT HAVE BEEN INSERTD: %s' % str(COUNT_OF_PRODUCT))
+
+        if is_err:
+            print("-- RESTART SCRIPT! ------")
+            LOGGER.error("RESTART SCRIPT!")
+            os.execv(sys.executable, ['python'] + sys.argv)

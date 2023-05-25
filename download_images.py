@@ -84,4 +84,4 @@ if __name__ == '__main__':
         LOGGER.error('ERROR AT PRODUCT: %s' % str(p_id))
 
     finally:
-        COMMON.print_execution_time(START_TIME, 'log/download_images.log')
+        COMMON.print_execution_time(LOGGER, START_TIME)

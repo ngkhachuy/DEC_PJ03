@@ -19,15 +19,12 @@ REPLACE_TEXT = 'Giá sản phẩm trên Tiki đã bao gồm thuế theo luật h
                'thuế nhập khẩu (đối với đơn hàng giao từ nước ngoài có giá trị trên 1 triệu đồng).....'
 
 
-def print_execution_time(stared, file_log):
-
-    logger = get_log(file_log)
+def print_execution_time(LOGGER, started):
 
     finished = datetime.datetime.now()
-    logger.info('STARTED TIME  : ' + stared.strftime("%H:%M:%S %d/%m/%Y"))
-    logger.info('FINISHED TIME : ' + finished.strftime("%H:%M:%S %d/%m/%Y"))
-    logger.info('EXECUTION TINE: ' + str(finished - stared))
-    print("[FINISHED]")
+    LOGGER.info('STARTED TIME  : ' + started.strftime("%H:%M:%S %d/%m/%Y"))
+    LOGGER.info('FINISHED TIME : ' + finished.strftime("%H:%M:%S %d/%m/%Y"))
+    LOGGER.info('EXECUTION TINE: ' + str(finished - started))
 
 
 def send_get_request(url):
@@ -63,6 +60,20 @@ def get_log(file_log):
                         datefmt='%d-%m-%Y %H:%M:%S',
                         level=logging.INFO)
     return logging.getLogger()
+
+
+def tracking_error(LOGGER, console_msg, log_msg, cat_id, prod_id):
+
+    print('<-------------------- [ERROR MESSAGE] -------------------->\n')
+    print(console_msg)
+    print('<--------------------------------------------------------->')
+    print('ERROR AT CATEGORY: %s' % str(cat_id))
+    print('ERROR AT PRODUCT: %s' % str(prod_id))
+    print('<--------------------------------------------------------->')
+
+    LOGGER.error(log_msg)
+    LOGGER.error('ERROR AT CATEGORY: %s' % str(cat_id))
+    LOGGER.error('ERROR AT PRODUCT: %s' % str(prod_id))
 
 
 def search_ingredient(txt):
