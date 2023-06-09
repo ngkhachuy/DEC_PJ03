@@ -2,3 +2,4 @@
 /data/mongobk
 /result/*
 __pycache__/
+.idea
