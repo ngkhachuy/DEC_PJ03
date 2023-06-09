@@ -1,4 +1,4 @@
 /images/*.png
 /data/mongobk
-/draf
-/result/PRODUCT_INGREDIENT_*
+/result/*
+__pycache__/
