@@ -17741,3 +17741,946 @@ requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLengt
 25-05-2023 14:23:24 INFO [INSERTED] Inserted 2000 Products to Category ID 49428
 25-05-2023 14:40:17 INFO [INSERTED] Inserted 2000 Products to Category ID 49430
 25-05-2023 14:57:03 INFO [INSERTED] Inserted 2000 Products to Category ID 10388
+25-05-2023 15:14:03 INFO [INSERTED] Inserted 2000 Products to Category ID 10389
+25-05-2023 15:30:54 INFO [INSERTED] Inserted 2000 Products to Category ID 933
+25-05-2023 15:47:34 INFO [INSERTED] Inserted 2000 Products to Category ID 934
+25-05-2023 16:04:25 INFO [INSERTED] Inserted 2000 Products to Category ID 935
+25-05-2023 16:21:20 INFO [INSERTED] Inserted 2000 Products to Category ID 10385
+25-05-2023 16:38:08 INFO [INSERTED] Inserted 2000 Products to Category ID 49362
+25-05-2023 16:54:40 INFO STARTED TIME  : 13:49:47 25/05/2023
+25-05-2023 16:54:40 INFO FINISHED TIME : 16:54:40 25/05/2023
+25-05-2023 16:54:40 INFO EXECUTION TINE: 3:04:53.007446
+25-05-2023 16:54:40 INFO NUMBER OF REQUEST HAD BEEN SENT: 22183
+25-05-2023 16:54:40 INFO TOTAL OF PRODUCT HAD BEEN INSERTD: 20000
+25-05-2023 17:20:27 INFO STARTED TIME: 17:20:27 25/05/2023
+25-05-2023 17:37:06 INFO [INSERTED] Inserted 2000 Products to Category ID 49364
+25-05-2023 17:44:46 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f9fec28be20>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products/168357091 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f9fec28be20>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 81, in <module>
+    prod_detail = COMMON.send_get_request(COMMON.PRODUCT_DETAIL_API % p_id)
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 34, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products/168357091 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f9fec28be20>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+25-05-2023 17:44:46 ERROR ERROR AT CATEGORY: 1701
+25-05-2023 17:44:46 ERROR ERROR AT PRODUCT: 168357091
+25-05-2023 17:44:46 INFO STARTED TIME  : 17:20:27 25/05/2023
+25-05-2023 17:44:46 INFO FINISHED TIME : 17:44:46 25/05/2023
+25-05-2023 17:44:46 INFO EXECUTION TINE: 0:24:19.201682
+25-05-2023 17:44:46 INFO NUMBER OF REQUEST HAVE BEEN SENT: 2400
+25-05-2023 17:44:46 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 2000
+25-05-2023 17:44:46 ERROR RESTART SCRIPT!
+25-05-2023 17:44:46 INFO STARTED TIME: 17:44:46 25/05/2023
+25-05-2023 17:44:46 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f1dbe748730>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products?limit=100&include=advertisement&aggregations=1&category=1701&page=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f1dbe748730>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 66, in <module>
+    prod_list = COMMON.send_get_request(COMMON.LIST_PRODUCT_API % (cat_id, page))
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 34, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products?limit=100&include=advertisement&aggregations=1&category=1701&page=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f1dbe748730>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+25-05-2023 17:44:46 ERROR ERROR AT CATEGORY: 1701
+25-05-2023 17:44:46 ERROR ERROR AT PRODUCT: 
+25-05-2023 17:44:46 INFO STARTED TIME  : 17:44:46 25/05/2023
+25-05-2023 17:44:46 INFO FINISHED TIME : 17:44:46 25/05/2023
+25-05-2023 17:44:46 INFO EXECUTION TINE: 0:00:00.064073
+25-05-2023 17:44:46 INFO NUMBER OF REQUEST HAVE BEEN SENT: 0
+25-05-2023 17:44:46 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 0
+25-05-2023 17:44:46 ERROR RESTART SCRIPT!
+25-05-2023 17:44:47 INFO STARTED TIME: 17:44:47 25/05/2023
+25-05-2023 17:44:47 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f3b540c91c0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products?limit=100&include=advertisement&aggregations=1&category=1701&page=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f3b540c91c0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 66, in <module>
+    prod_list = COMMON.send_get_request(COMMON.LIST_PRODUCT_API % (cat_id, page))
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 34, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products?limit=100&include=advertisement&aggregations=1&category=1701&page=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f3b540c91c0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+25-05-2023 17:44:47 ERROR ERROR AT CATEGORY: 1701
+25-05-2023 17:44:47 ERROR ERROR AT PRODUCT: 
+25-05-2023 17:44:47 INFO STARTED TIME  : 17:44:47 25/05/2023
+25-05-2023 17:44:47 INFO FINISHED TIME : 17:44:47 25/05/2023
+25-05-2023 17:44:47 INFO EXECUTION TINE: 0:00:00.065213
+25-05-2023 17:44:47 INFO NUMBER OF REQUEST HAVE BEEN SENT: 0
+25-05-2023 17:44:47 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 0
+25-05-2023 17:44:47 ERROR RESTART SCRIPT!
+25-05-2023 17:44:47 INFO STARTED TIME: 17:44:47 25/05/2023
+25-05-2023 17:44:47 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fdffe6b7250>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products?limit=100&include=advertisement&aggregations=1&category=1701&page=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fdffe6b7250>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 66, in <module>
+    prod_list = COMMON.send_get_request(COMMON.LIST_PRODUCT_API % (cat_id, page))
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 34, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products?limit=100&include=advertisement&aggregations=1&category=1701&page=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fdffe6b7250>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+25-05-2023 17:44:47 ERROR ERROR AT CATEGORY: 1701
+25-05-2023 17:44:47 ERROR ERROR AT PRODUCT: 
+25-05-2023 17:44:47 INFO STARTED TIME  : 17:44:47 25/05/2023
+25-05-2023 17:44:47 INFO FINISHED TIME : 17:44:47 25/05/2023
+25-05-2023 17:44:47 INFO EXECUTION TINE: 0:00:00.063786
+25-05-2023 17:44:47 INFO NUMBER OF REQUEST HAVE BEEN SENT: 0
+25-05-2023 17:44:47 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 0
+25-05-2023 17:44:47 ERROR RESTART SCRIPT!
+25-05-2023 17:44:48 INFO STARTED TIME: 17:44:48 25/05/2023
+25-05-2023 17:44:48 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f257ca242b0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products?limit=100&include=advertisement&aggregations=1&category=1701&page=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f257ca242b0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 66, in <module>
+    prod_list = COMMON.send_get_request(COMMON.LIST_PRODUCT_API % (cat_id, page))
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 34, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products?limit=100&include=advertisement&aggregations=1&category=1701&page=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f257ca242b0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+25-05-2023 17:44:48 ERROR ERROR AT CATEGORY: 1701
+25-05-2023 17:44:48 ERROR ERROR AT PRODUCT: 
+25-05-2023 17:44:48 INFO STARTED TIME  : 17:44:48 25/05/2023
+25-05-2023 17:44:48 INFO FINISHED TIME : 17:44:48 25/05/2023
+25-05-2023 17:44:48 INFO EXECUTION TINE: 0:00:00.065830
+25-05-2023 17:44:48 INFO NUMBER OF REQUEST HAVE BEEN SENT: 0
+25-05-2023 17:44:48 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 0
+25-05-2023 17:44:48 ERROR RESTART SCRIPT!
+25-05-2023 17:44:48 INFO STARTED TIME: 17:44:48 25/05/2023
+25-05-2023 17:44:48 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fc7f1a64850>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products?limit=100&include=advertisement&aggregations=1&category=1701&page=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fc7f1a64850>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 66, in <module>
+    prod_list = COMMON.send_get_request(COMMON.LIST_PRODUCT_API % (cat_id, page))
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 34, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='tiki.vn', port=443): Max retries exceeded with url: /api/v2/products?limit=100&include=advertisement&aggregations=1&category=1701&page=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fc7f1a64850>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+25-05-2023 17:44:48 ERROR ERROR AT CATEGORY: 1701
+25-05-2023 17:44:48 ERROR ERROR AT PRODUCT: 
+25-05-2023 17:44:48 INFO STARTED TIME  : 17:44:48 25/05/2023
+25-05-2023 17:44:48 INFO FINISHED TIME : 17:44:48 25/05/2023
+25-05-2023 17:44:48 INFO EXECUTION TINE: 0:00:00.066173
+25-05-2023 17:44:48 INFO NUMBER OF REQUEST HAVE BEEN SENT: 0
+25-05-2023 17:44:48 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 0
+25-05-2023 17:44:48 ERROR RESTART SCRIPT!
+25-05-2023 17:44:48 INFO STARTED TIME: 17:44:48 25/05/2023
+25-05-2023 18:01:21 INFO [INSERTED] Inserted 2000 Products to Category ID 1701
+25-05-2023 18:02:01 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 761, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 444, in _error_catcher
+    yield
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 828, in read_chunked
+    self._update_chunk_length()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 765, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 816, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 624, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 857, in read_chunked
+    self._original_response.close()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/contextlib.py", line 137, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 461, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 81, in <module>
+    prod_detail = COMMON.send_get_request(COMMON.PRODUCT_DETAIL_API % p_id)
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 34, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 745, in send
+    r.content
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 899, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 818, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+25-05-2023 18:02:01 ERROR ERROR AT CATEGORY: 1716
+25-05-2023 18:02:01 ERROR ERROR AT PRODUCT: 242725502
+25-05-2023 18:02:01 INFO STARTED TIME  : 17:44:48 25/05/2023
+25-05-2023 18:02:01 INFO FINISHED TIME : 18:02:01 25/05/2023
+25-05-2023 18:02:01 INFO EXECUTION TINE: 0:17:12.542718
+25-05-2023 18:02:01 INFO NUMBER OF REQUEST HAVE BEEN SENT: 2095
+25-05-2023 18:02:01 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 2000
+25-05-2023 18:02:01 ERROR RESTART SCRIPT!
+25-05-2023 18:02:01 INFO STARTED TIME: 18:02:01 25/05/2023
+25-05-2023 19:33:00 ERROR REQUEST TIMEOUT
+25-05-2023 19:33:00 ERROR ERROR AT CATEGORY: 1716
+25-05-2023 19:33:00 ERROR ERROR AT PRODUCT: 154365872
+25-05-2023 19:33:00 INFO STARTED TIME  : 18:02:01 25/05/2023
+25-05-2023 19:33:00 INFO FINISHED TIME : 19:33:00 25/05/2023
+25-05-2023 19:33:00 INFO EXECUTION TINE: 1:30:58.386626
+25-05-2023 19:33:00 INFO NUMBER OF REQUEST HAVE BEEN SENT: 1549
+25-05-2023 19:33:00 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 0
+25-05-2023 19:33:00 ERROR RESTART SCRIPT!
+25-05-2023 19:33:00 INFO STARTED TIME: 19:33:00 25/05/2023
+25-05-2023 19:50:10 INFO [INSERTED] Inserted 2000 Products to Category ID 1716
+25-05-2023 19:55:27 INFO STARTED TIME: 19:55:27 25/05/2023
+25-05-2023 20:12:13 INFO [INSERTED] Inserted 2000 Products to Category ID 49346
+25-05-2023 20:28:45 INFO [INSERTED] Inserted 2000 Products to Category ID 49348
+25-05-2023 20:30:06 INFO [INSERTED] Inserted 0131 Products to Category ID 49350
+25-05-2023 22:47:43 ERROR REQUEST TIMEOUT
+25-05-2023 22:47:43 ERROR ERROR AT CATEGORY: 938
+25-05-2023 22:47:43 ERROR ERROR AT PRODUCT: 98961276
+25-05-2023 22:47:43 INFO STARTED TIME  : 19:55:27 25/05/2023
+25-05-2023 22:47:43 INFO FINISHED TIME : 22:47:43 25/05/2023
+25-05-2023 22:47:43 INFO EXECUTION TINE: 2:52:16.647041
+25-05-2023 22:47:43 INFO NUMBER OF REQUEST HAVE BEEN SENT: 5009
+25-05-2023 22:47:43 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 4131
+25-05-2023 22:47:43 ERROR RESTART SCRIPT!
+25-05-2023 22:47:44 INFO STARTED TIME: 22:47:44 25/05/2023
+25-05-2023 23:04:27 INFO [INSERTED] Inserted 2000 Products to Category ID 938
+25-05-2023 23:22:11 INFO [INSERTED] Inserted 2000 Products to Category ID 939
+25-05-2023 23:33:54 INFO [INSERTED] Inserted 1365 Products to Category ID 49366
+25-05-2023 23:50:36 INFO [INSERTED] Inserted 2000 Products to Category ID 49368
+25-05-2023 23:51:17 INFO [INSERTED] Inserted 0085 Products to Category ID 49370
+25-05-2023 23:57:15 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 81, in <module>
+    prod_detail = COMMON.send_get_request(COMMON.PRODUCT_DETAIL_API % p_id)
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 53, in send_get_request
+    return json.loads(res_tmp.decode('utf-8'))
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+25-05-2023 23:57:15 ERROR ERROR AT CATEGORY: 49412
+25-05-2023 23:57:15 ERROR ERROR AT PRODUCT: 204291786
+25-05-2023 23:57:15 INFO STARTED TIME  : 22:47:44 25/05/2023
+25-05-2023 23:57:15 INFO FINISHED TIME : 23:57:15 25/05/2023
+25-05-2023 23:57:15 INFO EXECUTION TINE: 1:09:31.154793
+25-05-2023 23:57:15 INFO NUMBER OF REQUEST HAVE BEEN SENT: 8219
+25-05-2023 23:57:15 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 7450
+25-05-2023 23:57:15 ERROR RESTART SCRIPT!
+25-05-2023 23:57:15 INFO STARTED TIME: 23:57:15 25/05/2023
+26-05-2023 00:14:12 INFO [INSERTED] Inserted 2000 Products to Category ID 49412
+26-05-2023 00:27:12 INFO [INSERTED] Inserted 1551 Products to Category ID 49418
+26-05-2023 00:28:10 INFO [INSERTED] Inserted 0118 Products to Category ID 49420
+26-05-2023 00:35:58 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 81, in <module>
+    prod_detail = COMMON.send_get_request(COMMON.PRODUCT_DETAIL_API % p_id)
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 53, in send_get_request
+    return json.loads(res_tmp.decode('utf-8'))
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+26-05-2023 00:35:58 ERROR ERROR AT CATEGORY: 49422
+26-05-2023 00:35:58 ERROR ERROR AT PRODUCT: 207965932
+26-05-2023 00:35:58 INFO STARTED TIME  : 23:57:15 25/05/2023
+26-05-2023 00:35:58 INFO FINISHED TIME : 00:35:58 26/05/2023
+26-05-2023 00:35:58 INFO EXECUTION TINE: 0:38:42.293593
+26-05-2023 00:35:58 INFO NUMBER OF REQUEST HAVE BEEN SENT: 4636
+26-05-2023 00:35:58 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 3669
+26-05-2023 00:35:58 ERROR RESTART SCRIPT!
+26-05-2023 00:35:58 INFO STARTED TIME: 00:35:58 26/05/2023
+26-05-2023 00:52:56 INFO [INSERTED] Inserted 2000 Products to Category ID 49422
+26-05-2023 01:08:56 INFO [INSERTED] Inserted 1922 Products to Category ID 49424
+26-05-2023 01:21:00 INFO [INSERTED] Inserted 1423 Products to Category ID 49426
+26-05-2023 01:37:57 INFO [INSERTED] Inserted 2000 Products to Category ID 8345
+26-05-2023 01:54:34 INFO [INSERTED] Inserted 2000 Products to Category ID 8344
+26-05-2023 01:57:26 INFO [INSERTED] Inserted 0340 Products to Category ID 8347
+26-05-2023 02:14:14 INFO [INSERTED] Inserted 2000 Products to Category ID 49374
+26-05-2023 02:17:56 INFO [INSERTED] Inserted 0421 Products to Category ID 49376
+26-05-2023 02:22:14 INFO [INSERTED] Inserted 0519 Products to Category ID 49378
+26-05-2023 02:27:00 INFO [INSERTED] Inserted 0551 Products to Category ID 49380
+26-05-2023 02:29:11 INFO [INSERTED] Inserted 0256 Products to Category ID 49382
+26-05-2023 02:45:59 INFO [INSERTED] Inserted 2000 Products to Category ID 49384
+26-05-2023 02:48:09 INFO [INSERTED] Inserted 0275 Products to Category ID 49288
+26-05-2023 02:53:21 INFO [INSERTED] Inserted 0620 Products to Category ID 49290
+26-05-2023 02:55:23 INFO [INSERTED] Inserted 0228 Products to Category ID 5405
+26-05-2023 03:12:15 INFO [INSERTED] Inserted 2000 Products to Category ID 5406
+26-05-2023 03:29:00 INFO [INSERTED] Inserted 2000 Products to Category ID 5407
+26-05-2023 03:31:56 INFO [INSERTED] Inserted 0337 Products to Category ID 5408
+26-05-2023 03:41:14 ERROR REQUEST TIMEOUT
+26-05-2023 03:41:14 ERROR ERROR AT CATEGORY: 27576
+26-05-2023 03:41:14 ERROR ERROR AT PRODUCT: 57244558
+26-05-2023 03:41:14 INFO STARTED TIME  : 00:35:58 26/05/2023
+26-05-2023 03:41:14 INFO FINISHED TIME : 03:41:14 26/05/2023
+26-05-2023 03:41:14 INFO EXECUTION TINE: 3:05:16.345647
+26-05-2023 03:41:14 INFO NUMBER OF REQUEST HAVE BEEN SENT: 22164
+26-05-2023 03:41:14 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 20892
+26-05-2023 03:41:14 ERROR RESTART SCRIPT!
+26-05-2023 03:41:15 INFO STARTED TIME: 03:41:15 26/05/2023
+26-05-2023 03:43:59 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/http/client.py", line 289, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/http/client.py", line 289, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 81, in <module>
+    prod_detail = COMMON.send_get_request(COMMON.PRODUCT_DETAIL_API % p_id)
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 34, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 547, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+26-05-2023 03:43:59 ERROR ERROR AT CATEGORY: 27576
+26-05-2023 03:43:59 ERROR ERROR AT PRODUCT: 188228460
+26-05-2023 03:43:59 INFO STARTED TIME  : 03:41:15 26/05/2023
+26-05-2023 03:43:59 INFO FINISHED TIME : 03:43:59 26/05/2023
+26-05-2023 03:43:59 INFO EXECUTION TINE: 0:02:43.821864
+26-05-2023 03:43:59 INFO NUMBER OF REQUEST HAVE BEEN SENT: 323
+26-05-2023 03:43:59 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 0
+26-05-2023 03:43:59 ERROR RESTART SCRIPT!
+26-05-2023 03:43:59 INFO STARTED TIME: 03:43:59 26/05/2023
+26-05-2023 03:44:09 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/http/client.py", line 289, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/http/client.py", line 289, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 66, in <module>
+    prod_list = COMMON.send_get_request(COMMON.LIST_PRODUCT_API % (cat_id, page))
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 34, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 547, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+26-05-2023 03:44:09 ERROR ERROR AT CATEGORY: 27576
+26-05-2023 03:44:09 ERROR ERROR AT PRODUCT: 
+26-05-2023 03:44:09 INFO STARTED TIME  : 03:43:59 26/05/2023
+26-05-2023 03:44:09 INFO FINISHED TIME : 03:44:09 26/05/2023
+26-05-2023 03:44:09 INFO EXECUTION TINE: 0:00:10.457327
+26-05-2023 03:44:09 INFO NUMBER OF REQUEST HAVE BEEN SENT: 0
+26-05-2023 03:44:09 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 0
+26-05-2023 03:44:09 ERROR RESTART SCRIPT!
+26-05-2023 03:44:10 INFO STARTED TIME: 03:44:10 26/05/2023
+26-05-2023 03:56:15 ERROR REQUEST TIMEOUT
+26-05-2023 03:56:15 ERROR ERROR AT CATEGORY: 27576
+26-05-2023 03:56:15 ERROR ERROR AT PRODUCT: 198423530
+26-05-2023 03:56:15 INFO STARTED TIME  : 03:44:10 26/05/2023
+26-05-2023 03:56:15 INFO FINISHED TIME : 03:56:15 26/05/2023
+26-05-2023 03:56:15 INFO EXECUTION TINE: 0:12:04.793432
+26-05-2023 03:56:15 INFO NUMBER OF REQUEST HAVE BEEN SENT: 1310
+26-05-2023 03:56:15 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 0
+26-05-2023 03:56:15 ERROR RESTART SCRIPT!
+26-05-2023 03:56:15 INFO STARTED TIME: 03:56:15 26/05/2023
+26-05-2023 03:58:23 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/http/client.py", line 289, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/http/client.py", line 289, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 81, in <module>
+    prod_detail = COMMON.send_get_request(COMMON.PRODUCT_DETAIL_API % p_id)
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 34, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/adapters.py", line 547, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+26-05-2023 03:58:23 ERROR ERROR AT CATEGORY: 27576
+26-05-2023 03:58:23 ERROR ERROR AT PRODUCT: 208287477
+26-05-2023 03:58:23 INFO STARTED TIME  : 03:56:15 26/05/2023
+26-05-2023 03:58:23 INFO FINISHED TIME : 03:58:23 26/05/2023
+26-05-2023 03:58:23 INFO EXECUTION TINE: 0:02:08.338851
+26-05-2023 03:58:23 INFO NUMBER OF REQUEST HAVE BEEN SENT: 206
+26-05-2023 03:58:23 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 0
+26-05-2023 03:58:23 ERROR RESTART SCRIPT!
+26-05-2023 03:58:24 INFO STARTED TIME: 03:58:24 26/05/2023
+26-05-2023 03:58:55 ERROR REQUEST TIMEOUT
+26-05-2023 03:58:55 ERROR ERROR AT CATEGORY: 27576
+26-05-2023 03:58:55 ERROR ERROR AT PRODUCT: 
+26-05-2023 03:58:55 INFO STARTED TIME  : 03:58:24 26/05/2023
+26-05-2023 03:58:55 INFO FINISHED TIME : 03:58:55 26/05/2023
+26-05-2023 03:58:55 INFO EXECUTION TINE: 0:00:31.765832
+26-05-2023 03:58:55 INFO NUMBER OF REQUEST HAVE BEEN SENT: 0
+26-05-2023 03:58:55 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 0
+26-05-2023 03:58:55 ERROR RESTART SCRIPT!
+26-05-2023 03:58:56 INFO STARTED TIME: 03:58:56 26/05/2023
+26-05-2023 04:00:49 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 444, in _error_catcher
+    yield
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 828, in read_chunked
+    self._update_chunk_length()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 758, in _update_chunk_length
+    line = self._fp.fp.readline()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/ssl.py", line 1242, in recv_into
+    return self.read(nbytes, buffer)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/ssl.py", line 1100, in read
+    return self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 816, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 624, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 857, in read_chunked
+    self._original_response.close()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/contextlib.py", line 137, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 449, in _error_catcher
+    raise ReadTimeoutError(self._pool, None, "Read timed out.")
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='tiki.vn', port=443): Read timed out.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 81, in <module>
+    prod_detail = COMMON.send_get_request(COMMON.PRODUCT_DETAIL_API % p_id)
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 34, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 745, in send
+    r.content
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 899, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 822, in generate
+    raise ConnectionError(e)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='tiki.vn', port=443): Read timed out.
+
+26-05-2023 04:00:49 ERROR ERROR AT CATEGORY: 27576
+26-05-2023 04:00:49 ERROR ERROR AT PRODUCT: 174010371
+26-05-2023 04:00:49 INFO STARTED TIME  : 03:58:56 26/05/2023
+26-05-2023 04:00:49 INFO FINISHED TIME : 04:00:49 26/05/2023
+26-05-2023 04:00:49 INFO EXECUTION TINE: 0:01:53.536863
+26-05-2023 04:00:49 INFO NUMBER OF REQUEST HAVE BEEN SENT: 116
+26-05-2023 04:00:49 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 0
+26-05-2023 04:00:49 ERROR RESTART SCRIPT!
+26-05-2023 04:00:50 INFO STARTED TIME: 04:00:50 26/05/2023
+26-05-2023 04:12:57 INFO [INSERTED] Inserted 1434 Products to Category ID 27576
+26-05-2023 04:32:32 INFO [INSERTED] Inserted 2000 Products to Category ID 27578
+26-05-2023 04:37:25 INFO [INSERTED] Inserted 0572 Products to Category ID 49442
+26-05-2023 04:54:47 INFO [INSERTED] Inserted 2000 Products to Category ID 27588
+26-05-2023 05:11:56 INFO [INSERTED] Inserted 2000 Products to Category ID 27594
+26-05-2023 05:28:47 INFO [INSERTED] Inserted 2000 Products to Category ID 27596
+26-05-2023 05:45:25 INFO [INSERTED] Inserted 2000 Products to Category ID 27598
+26-05-2023 05:50:58 INFO [INSERTED] Inserted 0637 Products to Category ID 49352
+26-05-2023 06:08:20 INFO [INSERTED] Inserted 2000 Products to Category ID 49354
+26-05-2023 06:25:46 INFO [INSERTED] Inserted 2000 Products to Category ID 49356
+26-05-2023 06:26:54 INFO [INSERTED] Inserted 0128 Products to Category ID 49358
+26-05-2023 06:43:19 INFO [INSERTED] Inserted 1950 Products to Category ID 49360
+26-05-2023 07:00:22 INFO [INSERTED] Inserted 2000 Products to Category ID 27580
+26-05-2023 07:01:10 INFO [INSERTED] Inserted 0083 Products to Category ID 53238
+26-05-2023 07:18:56 INFO [INSERTED] Inserted 2000 Products to Category ID 27584
+26-05-2023 07:25:27 INFO [INSERTED] Inserted 0765 Products to Category ID 5344
+26-05-2023 08:11:15 INFO STARTED TIME: 08:11:15 26/05/2023
+26-05-2023 08:23:50 INFO [INSERTED] Inserted 1509 Products to Category ID 5345
+26-05-2023 08:40:40 INFO [INSERTED] Inserted 2000 Products to Category ID 5346
+26-05-2023 08:47:25 ERROR Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 761, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 444, in _error_catcher
+    yield
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 828, in read_chunked
+    self._update_chunk_length()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 765, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 816, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 624, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 857, in read_chunked
+    self._original_response.close()
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/contextlib.py", line 137, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/urllib3/response.py", line 461, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/get_product_API.py", line 81, in <module>
+    prod_detail = COMMON.send_get_request(COMMON.PRODUCT_DETAIL_API % p_id)
+  File "/home/ngkhachuy/PROJECT/DEC_PJ4_TIKI.VN/COMMON.py", line 34, in send_get_request
+    res_tmp = requests.get(url, headers={"user-agent":
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/sessions.py", line 745, in send
+    r.content
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 899, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+  File "/home/ngkhachuy/anaconda3/lib/python3.9/site-packages/requests/models.py", line 818, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+26-05-2023 08:47:25 ERROR ERROR AT CATEGORY: 49596
+26-05-2023 08:47:25 ERROR ERROR AT PRODUCT: 195324167
+26-05-2023 08:47:25 INFO STARTED TIME  : 08:11:15 26/05/2023
+26-05-2023 08:47:25 INFO FINISHED TIME : 08:47:25 26/05/2023
+26-05-2023 08:47:25 INFO EXECUTION TINE: 0:36:10.706766
+26-05-2023 08:47:25 INFO NUMBER OF REQUEST HAVE BEEN SENT: 4337
+26-05-2023 08:47:25 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 3509
+26-05-2023 08:47:25 ERROR RESTART SCRIPT!
+26-05-2023 08:47:26 INFO STARTED TIME: 08:47:26 26/05/2023
+26-05-2023 08:54:28 INFO [INSERTED] Inserted 0850 Products to Category ID 49596
+26-05-2023 09:11:28 INFO [INSERTED] Inserted 2000 Products to Category ID 49598
+26-05-2023 09:21:49 INFO [INSERTED] Inserted 1255 Products to Category ID 49608
+26-05-2023 09:37:44 INFO [INSERTED] Inserted 1888 Products to Category ID 49610
+26-05-2023 09:44:49 INFO [INSERTED] Inserted 0834 Products to Category ID 49600
+26-05-2023 10:01:44 INFO [INSERTED] Inserted 2000 Products to Category ID 49602
+26-05-2023 10:17:54 INFO [INSERTED] Inserted 1937 Products to Category ID 49604
+26-05-2023 10:34:47 INFO [INSERTED] Inserted 2000 Products to Category ID 49606
+26-05-2023 10:35:18 INFO [INSERTED] Inserted 0055 Products to Category ID 49616
+26-05-2023 10:40:51 INFO [INSERTED] Inserted 0681 Products to Category ID 49618
+26-05-2023 10:40:51 INFO STARTED TIME  : 08:47:26 26/05/2023
+26-05-2023 10:40:51 INFO FINISHED TIME : 10:40:51 26/05/2023
+26-05-2023 10:40:51 INFO EXECUTION TINE: 1:53:24.573951
+26-05-2023 10:40:51 INFO NUMBER OF REQUEST HAVE BEEN SENT: 13638
+26-05-2023 10:40:51 INFO TOTAL OF PRODUCT HAVE BEEN INSERTD: 13500

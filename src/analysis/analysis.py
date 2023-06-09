@@ -16,7 +16,7 @@ def get_product_quantity(collection):
                 }}}])))
     db_count_by_category.rename(columns={"_id": "LEAF_CAT_ID"},  inplace=True)
 
-    list_categories = pd.read_csv('data/categories_with_relationship.csv')
+    list_categories = pd.read_csv('../../data/categories_with_relationship.csv')
     list_categories['LEAF_CAT_ID'] = list_categories['LEAF_CAT_ID'].apply(lambda x: x.replace('c', ''))
 
     db_product_quantity_by_category = list_categories.join(db_count_by_category.set_index('LEAF_CAT_ID'),

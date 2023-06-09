@@ -1,15 +1,14 @@
 import datetime
-import logging
 import traceback
 
 import pymongo
 import requests
 
-import COMMON
+from src import COMMON
 
 if __name__ == '__main__':
 
-    LOGGER = LOGGER = COMMON.get_log('log/download_images.log')
+    LOGGER = LOGGER = COMMON.get_log('../../log/download_images.log')
 
     START_TIME = datetime.datetime.now()
     msg = 'STARTED TIME: ' + START_TIME.strftime("%H:%M:%S %d/%m/%Y")
@@ -29,7 +28,7 @@ if __name__ == '__main__':
         LIST_PRODUCTS = mycol.find({}, {'_id': 0, 'prod_id': 1, 'images_url': 1})
 
         # ------------------------------ Get list of FINISHED Products
-        with open('data/DONE_PRODUCTS', 'r') as f:
+        with open('../../data/DONE_PRODUCTS', 'r') as f:
             FINISHED_PRODUCTS = [x.strip() for x in f.readlines()]
 
         for prod in LIST_PRODUCTS:
@@ -69,7 +68,7 @@ if __name__ == '__main__':
                 LOGGER.info(msg)
 
             # ------------------------------ Write Product ID to file
-            with open('data/DONE_PRODUCTS', 'a') as file:
+            with open('../../data/DONE_PRODUCTS', 'a') as file:
                 file.write(str(p_id))
                 file.write("\n")
 

@@ -1,43 +1,52 @@
 # DEC_PJ04_TIKI.VN
 
-## DESCRIPTION
-
-1. Lấy **toàn bộ** sản phẩm trên các danh mục của trang tiki.vn. Dữ liệu lấy về sẽ lưu trong MongoDB
-2. Tạo một bản sao lưu data gửi cho Coach để có thể Restore dữ liệu trên một hệ thống MongoDB khác
-3. Trích xuất các trường thông tin sau và lưu vào MySQL để cho team khác sử dụng:
-    1. Product name: Tên sản phẩm 
-    2. Short description: Mô tả ngắn của sản phẩm
-    3. Description: Mô tả chi tiết sản phẩm, clean dữ liệu, lọc bỏ những tag html thừa trong mô tả
-    4. URL: Link sản phẩm
-    5. Rating: Đánh giá trung bình về sản phẩm
-    6. Số lượng bán
-    7. Giá sản phẩm
-    8. Category ID: ID của danh mục sản phẩm
-4. Thống kê:
-    1. Mỗi category (bao gồm cả sub-category) có bao nhiêu sản phẩm
-    2. Tạo biểu đồ thống kê xuất xứ của các sản phẩm. Ví dụ từ biểu đồ có thể biết: Có bao nhiêu sản phẩm xuất xứ từ Trung Quốc. Từ đó so sánh tỉ lệ xuất xứ của các sản phẩm
-    3. Top 10 sản phẩm được bán nhiều nhất, có rating cao nhất và giá thấp nhất
-5. Lấy tất cả sản phẩm mà có “thành phần” trong mô tả. Lưu các thông tin dưới dạng CSV: product_id, ingredient.
-Lưu ý, chỉ trích chọn ra thông tin miêu tả “Thành phần” trong Description, những thông tin khác không lấy và Thời gian truy vấn ra các sản phẩm có “Thành phần” trong Description phải nhanh nhất có thể
-6. Download **toàn bộ** ảnh ở “base_url” của mỗi sản phẩm về lưu trong ổ cứng (mỗi sản phẩm có từ 3-5 ảnh). Format tên ảnh: productID_number. Ví dụ tên ảnh thứ nhất của sản phẩm 180001095 sẽ là 180001095_1.png
-7. Đưa ra idea cho leader về việc mình có thể làm gì tiếp theo với những dữ liệu này
-
 ## SOURCE
 
-1. `get_categories.py` : Get all categories in TIKI
-2. `normalize_categories` : Insert to Mysql and Normalize list of categories
-3. `get_product_API.py` : Get products by API
-4. `get_product.py` : Get products by Selenium and urllib3
-5. `transfer_products.py` : Transfer products's data from MongoDB to MySQL
-6. `transfer_products_iterate.py` : Transfer products's data from MongoDB to MySQL (one by one)
-7. `transfer_products_split.py` : Transfer products's data from MongoDB to MySQL (each 200,000 records)
-8. `analysis.py` : Do analysis
-9. `search_ingredient.py` : Search for product that have "Thành phần" on description
-10. `analysis_book_sold.py` : Analysis of book selling
-11. `download_images.py` : Download images of product
-12. `COMMON.py` : Common function
-13. `/log/crawling.log` : Log file of getting products
-14. `/log/download_images.log` : log file of downloading images
+### I. GET DATA
+#### 1. Get list of all Categories [get_categories.py](src/get_data/get_categories.py)
+- For each category, we have `id`, `parent's id`, `name`, `level`, `url`
+- The output data is `data/categories_[time-stamp].csv`. Exp: [categories_20230510_132551.csv](data/categories_20230510_132551.csv)
+####
+#### 2. Nomarlizing Data for next step: [normalize_categories.py](src/get_data/normalize_categories.py)
+- Insert data from above result to MySQL
+- Normalize Data by executing SQL stament in [normalize_categories.sql](SQL/normalize_categories.sql)
+- The output data is [categories_with_relationship.csv](data/categories_with_relationship.csv)
+#### 
+#### 3. Crawling Product data from TIKI [get_product_API.py](src/get_data/get_product_API.py)
+- Crawl Product in each category from [categories_with_relationship.csv](data/categories_with_relationship.csv) **(exluced Finished Categories)** by API that public by TIKI. 
+- Store collected data in MongoDB.
+- Tracking finished categories to file [DONE_CATEGORIES](data/DONE_CATEGORIES) in scenario the script would be restarted when error occurred.
+- In case of host blocking, wait 10s for unblocking. Then retry. Increase waiting time by 1s for each failed retry.
+- When other unexpected error occurred, script will be automated restarts.
+- Logging file is [crawling.log](log/crawling.log)
 
-15. `/data/DONE_CATEGORIES` : Tracking categories what have been crawled
-16. `/data/DONE_PRODUCT`
+### II. TRANSFER DATA
+There are 3 ways to export and transfer data from MongoDB to MySQL
+#### 1. Transfer all data in 1 bulk insert: [transfer_products.py](src/transfer_data/transfer_products.py)
+- Query all data from MongoDB
+- Config `max_allowed_packet` attribute in MySQL
+- Insert all data to MySQL
+#### 2. Transfer data for each product: [transfer_products_iterate.py](src/transfer_data/transfer_products_iterate.py)
+- Query all data from MongoDB
+- Iterate through dataset, insert one by one product
+#### 3. Transfer data by spiting list of product: [transfer_products_split.py](src/transfer_data/transfer_products_split.py)
+- Divide number of records in MongoDB to multi part
+- Query each part and insert to MySQL
+
+### III. ANALYSIS
+#### 1. Module: [analysis.py](src/analysis/analysis.py)
+- Get Product's Quantity by Category
+- Get TOP10 Product's Origin
+- Get TOP10 Best Seller
+- Get TOP10 Best Rating
+- Get TOP10 Lowest Price
+
+Result store at folder [result](result)
+#### 2. Module [search_ingredient.py](src/analysis/search_ingredient.py)
+- Create Text Index at column `description`
+- Search for `Thành phần` in `description`
+
+Result store at folder [result](result)
+#### 3. Module [download_images.py](src/analysis/download_images.py)
+- Download all image of Product
+- Store at folder [images](images)

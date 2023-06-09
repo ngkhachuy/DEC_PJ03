@@ -13,6 +13,9 @@ LIST_PRODUCT_API = 'https://tiki.vn/api/v2/products?' \
                    'page=%i'
 PRODUCT_DETAIL_API = 'https://tiki.vn/api/v2/products/%s'
 
+MONGODB_LOCALHOST = "mongodb://localhost:27017/"
+MONGODB_DB_NAME = "TIKI_NEW"
+
 REPLACE_TEXT = 'Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. ' \
                'Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng ' \
                'mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng cồng kềnh, ' \

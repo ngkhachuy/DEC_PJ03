@@ -1,19 +1,9 @@
 WITH
-tbl1 AS (
-    SELECT *
-    FROM category WHERE LVL = 1),
-tbl2 AS (
-    SELECT *
-    FROM category WHERE LVL = 2),
-tbl3 AS (
-    SELECT *
-    FROM category WHERE LVL = 3),
-tbl4 AS (
-    SELECT *
-    FROM category WHERE LVL = 4),
-tbl5 AS (
-    SELECT *
-    FROM category WHERE LVL = 5)
+    tbl1 AS (SELECT * FROM category WHERE LVL = 1),
+    tbl2 AS (SELECT * FROM category WHERE LVL = 2),
+    tbl3 AS (SELECT * FROM category WHERE LVL = 3),
+    tbl4 AS (SELECT * FROM category WHERE LVL = 4),
+    tbl5 AS (SELECT * FROM category WHERE LVL = 5)
 
 SELECT
     tbl1.CAT_NAME AS name_1,

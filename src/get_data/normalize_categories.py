@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from MODELS.CATEGORY import Base
 
 
-def import_date(file):
+def import_to_mysql(file):
 
     engine = db.create_engine('mysql+mysqlconnector://root:123456@localhost:3306/TIKI')
     session = sessionmaker()
@@ -25,14 +25,14 @@ def import_date(file):
 def read_data_from_db():
     engine = db.create_engine('mysql+mysqlconnector://root:123456@localhost:3306/TIKI')
     conn = engine.connect()
-    rtn = pd.read_sql(db.text(open('SQL/normalize_categories.sql', 'r').read()), conn)
+    rtn = pd.read_sql(db.text(open('../../SQL/normalize_categories.sql', 'r').read()), conn)
     conn.close()
     return rtn
 
 
 if __name__ == '__main__':
 
-    # FILE_DATA = 'data/categories_20230510_132551.csv'
-    # import_date(FILE_DATA)
+    FILE_DATA = 'data/categories_20230510_132551.csv'
+    import_to_mysql(FILE_DATA)
 
     read_data_from_db().to_csv('data/categories_with_relationship.csv', index=False)

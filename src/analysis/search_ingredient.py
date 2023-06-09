@@ -1,10 +1,9 @@
 import datetime
-import re
 
 import pymongo
 import pandas as pd
 
-import COMMON
+from src import COMMON
 
 if __name__ == '__main__':
 

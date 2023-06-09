@@ -6,15 +6,16 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 from selenium.webdriver.chrome.options import Options
 
-import COMMON
+from src import COMMON
 from MODELS.CATEGORY import CATEGORY
 
 
 if __name__ == '__main__':
 
-    START_TIME = datetime.datetime.now()
+    logger = COMMON.get_log('../../log/get_categories.log')
+    start_time = datetime.datetime.now()
     ROOT_URL = 'https://tiki.vn'
-    COUNT_OF_REQUEST = 0
+    requets_cnt = 0
     LIST_CATEGORIES = []
 
     chrome_options = Options()
@@ -27,7 +28,7 @@ if __name__ == '__main__':
     browser = webdriver.Chrome(options=chrome_options)
     browser.get(ROOT_URL)
     sleep(2)    # Waiting for loading JS on page
-    COUNT_OF_REQUEST += 1
+    requets_cnt += 1
     root_page_context = BeautifulSoup(browser.page_source, 'lxml')
     highlight_div = root_page_context.find_all('div', class_=['styles__StyledListItem-sc-w7gnxl-0'])[1]
     root_categories = highlight_div.find_all('a', class_=['styles__StyledItem-sc-oho8ay-0 bzmzGe'])
@@ -44,7 +45,7 @@ if __name__ == '__main__':
         # browser = webdriver.Chrome(options=chrome_options)
         browser.get(cat_url)
         sleep(2)    # Waiting for loading JS on page
-        COUNT_OF_REQUEST += 1
+        requets_cnt += 1
         category_page_context = BeautifulSoup(browser.page_source, 'lxml')
         second_categories = category_page_context.find_all('a', class_=['item--category'])
 
@@ -59,7 +60,7 @@ if __name__ == '__main__':
             # browser = webdriver.Chrome(options=chrome_options)
             browser.get(ROOT_URL + second_cat_url)
             sleep(2)    # Waiting for loading JS on page
-            COUNT_OF_REQUEST += 1
+            requets_cnt += 1
             second_category_page_context = BeautifulSoup(browser.page_source, 'lxml')
             third_categories = second_category_page_context.find_all('a', class_=['item--category'])
 
@@ -74,7 +75,7 @@ if __name__ == '__main__':
                 # browser = webdriver.Chrome(options=chrome_options)
                 browser.get(ROOT_URL + third_cat_url)
                 sleep(2)  # Waiting for loading JS on page
-                COUNT_OF_REQUEST += 1
+                requets_cnt += 1
                 third_category_page_context = BeautifulSoup(browser.page_source, 'lxml')
                 fourth_categories = third_category_page_context.find_all('a', class_=['item--category'])
 
@@ -89,7 +90,7 @@ if __name__ == '__main__':
                     # browser = webdriver.Chrome(options=chrome_options)
                     browser.get(ROOT_URL + fourth_cat_url)
                     sleep(2)  # Waiting for loading JS on page
-                    COUNT_OF_REQUEST += 1
+                    requets_cnt += 1
                     fourth_category_page_context = BeautifulSoup(browser.page_source, 'lxml')
                     fifth_categories = fourth_category_page_context.find_all('a', class_=['item--category'])
 
@@ -120,6 +121,6 @@ if __name__ == '__main__':
         LIST_CATEGORIES.append(CATEGORY(cat_id, None, cat.attrs['title'].strip(), 1, cat_url))
 
     categories_df = pd.DataFrame([c.__dict__ for c in LIST_CATEGORIES])
-    categories_df.to_csv("data/categories_%s.csv" % START_TIME.strftime("%Y%m%d_%H%M%S"), index=False)
-    COMMON.print_execution_time(START_TIME)
-    print("NUMBER OF REQUEST HAD BEEN SENT: ", str(COUNT_OF_REQUEST))
+    categories_df.to_csv("data/categories_%s.csv" % start_time.strftime("%Y%m%d_%H%M%S"), index=False)
+    COMMON.print_execution_time(logger, start_time)
+    print("NUMBER OF REQUEST HAD BEEN SENT: ", str(requets_cnt))
